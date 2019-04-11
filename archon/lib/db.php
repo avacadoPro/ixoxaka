@@ -14,7 +14,7 @@ class Database
 		$this->dbname = "coordina_coordinator";
 		$this->host = "localhost:3306";
 		//  $this->host = "127.0.0.1";
-		$this->username = "codeit";
+		$this->username = 'coordina_coordinator';
 		// $this->username = "root";
 		$this->password = "codeit1234!";
 		// $this->password = "";
