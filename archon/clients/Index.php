@@ -8,7 +8,7 @@ spl_autoload_register(function ($class_name) {
 	include 'classes/' . $class_name . '.php';
 });
 $dal = new clients1DAL();
-include '../header1.php';
+include '../Header1.php';
 $result = null;
 if (isset($_POST['btn_search'])) {
 	$objBAL = new clients1DAL();

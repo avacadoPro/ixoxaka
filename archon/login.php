@@ -26,7 +26,7 @@ if(isset($_POST['submit'])){
               $_SESSION['password']   = $key['password'];
               $_SESSION['isLogin']    = true;
               
-              echo "<script> location.href='portfolio'; </script>";
+              echo "<script> location.href='portfolio/index.php'; </script>";
               exit;
 
 

@@ -8,7 +8,7 @@ spl_autoload_register(function ($class_name) {
     include 'classes/' . $class_name . '.php';
 });
 $dal = new aboutusDAL();
-include '../header1.php';
+include '../Header1.php';
 $objBAL = new aboutusBAL();
 // if (isset($_GET['id'])) {
     foreach ($dal->Find(1) as $row) {
