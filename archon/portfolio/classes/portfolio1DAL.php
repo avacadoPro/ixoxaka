@@ -5,7 +5,7 @@ class portfolio1DAL
     function __construct()
     {
         try {
-            $GLOBALS['pdo'] = new PDO('mysql:host=localhost:3306;dbname=coordina_coordinator', 'codeit', 'codeit1234!');
+            $GLOBALS['pdo'] = new PDO('mysql:host=localhost:3306;dbname=coordina_coordinator', 'coordina_codeit', 'codeit1234!');
             $GLOBALS['pdo']->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		    // echo "Connected successfully"; 			
         } catch (PDOException $e) {
