@@ -62,7 +62,7 @@ function mathmlFunction() {
 		if (img.attachEvent!=null) {
 			img.attachEvent( "onload", function() {fixVerticalAlign(img);});
 		}
-		img.src = 'http://localhost/aspx-demo_nicedit_wiris/nicedit/nicedit_wiris/integration/showimage.aspx?mml='+encodeURIComponent(mathml);
+		img.src = 'http://localhost:3306/aspx-demo_nicedit_wiris/nicedit/nicedit_wiris/integration/showimage.aspx?mml='+encodeURIComponent(mathml);
 		img.align = 'middle';
 		img.className = 'Wirisformula';
 		
