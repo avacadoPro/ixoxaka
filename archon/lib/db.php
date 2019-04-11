@@ -12,12 +12,12 @@ class Database
 	{
 
 		$this->dbname = "coordina_coordinator";
-		// $this->host = "localhost";
-		 $this->host = "127.0.0.1";
-		// $this->username = "coordina_abubaka";
-		$this->username = "root";
-		// $this->password = "m2AMZ5&5";
-		$this->password = "";
+		$this->host = "localhost";
+		//  $this->host = "127.0.0.1";
+		$this->username = "codeit";
+		// $this->username = "root";
+		$this->password = "codeit1234!";
+		// $this->password = "";
 
 	}
 
