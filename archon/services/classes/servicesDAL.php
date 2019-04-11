@@ -6,7 +6,7 @@ class servicesDAL
     {		
 	    try 
 	    {
-		    $GLOBALS['pdo'] = new PDO('mysql:host=127.0.0.1;dbname=coordina_coordinator', 'root', '');
+		    $GLOBALS['pdo'] = new PDO('mysql:host=localhost;dbname=coordina_coordinator', 'codeit', 'codeit1234!');
 		    $GLOBALS['pdo']->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		    //echo "Connected successfully"; 			
         }
