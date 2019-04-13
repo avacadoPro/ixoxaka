@@ -1,5 +1,5 @@
 <?php 
-class bannerDAL
+class subscribersDAL
 {
     public $pdo=null;
     function __construct()
@@ -17,37 +17,37 @@ class bannerDAL
     }
     	public function Add($obj){
     		$db=$GLOBALS['pdo'];
-            $query="INSERT INTO banner( "; 
-            $query.=" videoURL "; 
+            $query="INSERT INTO subscribers( "; 
+            $query.=" email "; 
             $query.=") VALUES ("; 
-            $query.="'{$obj->videoURL}'"; 
+            $query.="'{$obj->email}'"; 
             $query.=");"; 
                 $db->query($query);
        }
     	public function Update($obj){
     		$db=$GLOBALS['pdo'];
-            $query="UPDATE banner SET "; 
-            $query.="videoURL='{$obj->videoURL}'"; 
+            $query="UPDATE subscribers SET "; 
+            $query.="email='{$obj->email}'"; 
             $query.="WHERE id='{$obj->id}' ;"; 
              $db->query($query);
        }
     	public function Delete($i){
     		$db=$GLOBALS['pdo'];
-            $query="DELETE FROM banner"; 
+            $query="DELETE FROM subscribers"; 
             $query.=" WHERE id='{$i}'"; 
             $query.=";"; 
             $db->query($query);
        }
     	public function Find($i){
     		$db=$GLOBALS['pdo'];
-            $query="SELECT * FROM banner"; 
+            $query="SELECT * FROM subscribers"; 
             $query.=" WHERE id='{$i}'"; 
             $query.=";"; 
                return $db->query($query);
        }
     	public function LoadAll(){
     		$db=$GLOBALS['pdo'];
-            $query="SELECT * FROM banner;"; 
+            $query="SELECT * FROM subscribers;"; 
             if($db!=null) 
             {
                return $db->query($query);
@@ -55,10 +55,10 @@ class bannerDAL
        }
     	public function Search($obj){
     		$db=$GLOBALS['pdo'];
-            $query="SELECT * FROM banner WHERE "; 
+            $query="SELECT * FROM subscribers WHERE "; 
             $query.= "(id IS NULL OR id LIKE '%{$obj->id}%') ";
             $query.= " OR ";
-            $query.= "(videoURL IS NULL OR videoURL LIKE '%{$obj->videoURL}%') ";
+            $query.= "(email IS NULL OR email LIKE '%{$obj->email}%') ";
             if($db!=null) 
             {
                return $db->query($query);

@@ -1,5 +1,5 @@
 <?php 
-class bannerDAL
+class funfactsDAL
 {
     public $pdo=null;
     function __construct()
@@ -17,37 +17,49 @@ class bannerDAL
     }
     	public function Add($obj){
     		$db=$GLOBALS['pdo'];
-            $query="INSERT INTO banner( "; 
-            $query.=" videoURL "; 
+            $query="INSERT INTO funfacts( "; 
+            $query.=" creativeWork "; 
+            $query.=", "; 
+            $query.=" satisfiedClients "; 
+            $query.=", "; 
+            $query.=" cupsofcoffee "; 
             $query.=") VALUES ("; 
-            $query.="'{$obj->videoURL}'"; 
+            $query.="'{$obj->creativeWork}'"; 
+            $query.=", "; 
+            $query.="'{$obj->satisfiedClients}'"; 
+            $query.=", "; 
+            $query.="'{$obj->cupsofcoffee}'"; 
             $query.=");"; 
                 $db->query($query);
        }
     	public function Update($obj){
     		$db=$GLOBALS['pdo'];
-            $query="UPDATE banner SET "; 
-            $query.="videoURL='{$obj->videoURL}'"; 
+            $query="UPDATE funfacts SET "; 
+            $query.="creativeWork='{$obj->creativeWork}'"; 
+            $query.=", "; 
+            $query.="satisfiedClients='{$obj->satisfiedClients}'"; 
+            $query.=", "; 
+            $query.="cupsofcoffee='{$obj->cupsofcoffee}'"; 
             $query.="WHERE id='{$obj->id}' ;"; 
              $db->query($query);
        }
     	public function Delete($i){
     		$db=$GLOBALS['pdo'];
-            $query="DELETE FROM banner"; 
+            $query="DELETE FROM funfacts"; 
             $query.=" WHERE id='{$i}'"; 
             $query.=";"; 
             $db->query($query);
        }
     	public function Find($i){
     		$db=$GLOBALS['pdo'];
-            $query="SELECT * FROM banner"; 
+            $query="SELECT * FROM funfacts"; 
             $query.=" WHERE id='{$i}'"; 
             $query.=";"; 
                return $db->query($query);
        }
     	public function LoadAll(){
     		$db=$GLOBALS['pdo'];
-            $query="SELECT * FROM banner;"; 
+            $query="SELECT * FROM funfacts;"; 
             if($db!=null) 
             {
                return $db->query($query);
@@ -55,10 +67,14 @@ class bannerDAL
        }
     	public function Search($obj){
     		$db=$GLOBALS['pdo'];
-            $query="SELECT * FROM banner WHERE "; 
+            $query="SELECT * FROM funfacts WHERE "; 
             $query.= "(id IS NULL OR id LIKE '%{$obj->id}%') ";
             $query.= " OR ";
-            $query.= "(videoURL IS NULL OR videoURL LIKE '%{$obj->videoURL}%') ";
+            $query.= "(creativeWork IS NULL OR creativeWork LIKE '%{$obj->creativeWork}%') ";
+            $query.= " OR ";
+            $query.= "(satisfiedClients IS NULL OR satisfiedClients LIKE '%{$obj->satisfiedClients}%') ";
+            $query.= " OR ";
+            $query.= "(cupsofcoffee IS NULL OR cupsofcoffee LIKE '%{$obj->cupsofcoffee}%') ";
             if($db!=null) 
             {
                return $db->query($query);

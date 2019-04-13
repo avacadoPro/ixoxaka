@@ -1,4 +1,5 @@
 <?php
+ 
   session_start();
   // session_start();
   require ("lib/db.php");
@@ -139,6 +140,7 @@ if(isset($_SESSION['type'])){
                     <li><a href="../clients"><i class="fa fa-server"></i> Our Clients </a></li>
                     <li><a href="../team"><i class="fa fa-users"></i> Team </a></li>
                     <li><a href="../services"><i class="fa fa-edit"></i> Services </a></li>
+                    <li><a href="../testimonials"><i class="fa fa-edit"></i> Testimonials </a></li>
                     <li><a href="../blog"><i class="fa fa-edit"></i> Blog </a></li>
                     <li><a href="../aboutus"><i class="fa fa-edit"></i> About Us </a></li>
                     <li><a href="../contactus"><i class="fa fa-edit"></i> Contact Us </a></li>

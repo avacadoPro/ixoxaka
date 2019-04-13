@@ -1,13 +1,16 @@
 <?php
+
 $classname = "aboutusDAL.php";
 spl_autoload_register(function ($class_name) {
     include 'classes/' . $class_name . '.php';
 });
+
 $classname = "aboutusBAL.php";
 spl_autoload_register(function ($class_name) {
     include 'classes/' . $class_name . '.php';
 });
 $dal = new aboutusDAL();
+
 include '../Header1.php';
 $objBAL = new aboutusBAL();
 // if (isset($_GET['id'])) {

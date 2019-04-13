@@ -1,5 +1,5 @@
 <?php 
-class bannerDAL
+class testimonialsDAL
 {
     public $pdo=null;
     function __construct()
@@ -17,37 +17,43 @@ class bannerDAL
     }
     	public function Add($obj){
     		$db=$GLOBALS['pdo'];
-            $query="INSERT INTO banner( "; 
-            $query.=" videoURL "; 
+            $query="INSERT INTO testimonials( "; 
+            $query.=" text "; 
+            $query.=", "; 
+            $query.=" author "; 
             $query.=") VALUES ("; 
-            $query.="'{$obj->videoURL}'"; 
+            $query.="'{$obj->text}'"; 
+            $query.=", "; 
+            $query.="'{$obj->author}'"; 
             $query.=");"; 
                 $db->query($query);
        }
     	public function Update($obj){
     		$db=$GLOBALS['pdo'];
-            $query="UPDATE banner SET "; 
-            $query.="videoURL='{$obj->videoURL}'"; 
+            $query="UPDATE testimonials SET "; 
+            $query.="text='{$obj->text}'"; 
+            $query.=", "; 
+            $query.="author='{$obj->author}'"; 
             $query.="WHERE id='{$obj->id}' ;"; 
              $db->query($query);
        }
     	public function Delete($i){
     		$db=$GLOBALS['pdo'];
-            $query="DELETE FROM banner"; 
+            $query="DELETE FROM testimonials"; 
             $query.=" WHERE id='{$i}'"; 
             $query.=";"; 
             $db->query($query);
        }
     	public function Find($i){
     		$db=$GLOBALS['pdo'];
-            $query="SELECT * FROM banner"; 
+            $query="SELECT * FROM testimonials"; 
             $query.=" WHERE id='{$i}'"; 
             $query.=";"; 
                return $db->query($query);
        }
     	public function LoadAll(){
     		$db=$GLOBALS['pdo'];
-            $query="SELECT * FROM banner;"; 
+            $query="SELECT * FROM testimonials;"; 
             if($db!=null) 
             {
                return $db->query($query);
@@ -55,10 +61,12 @@ class bannerDAL
        }
     	public function Search($obj){
     		$db=$GLOBALS['pdo'];
-            $query="SELECT * FROM banner WHERE "; 
+            $query="SELECT * FROM testimonials WHERE "; 
             $query.= "(id IS NULL OR id LIKE '%{$obj->id}%') ";
             $query.= " OR ";
-            $query.= "(videoURL IS NULL OR videoURL LIKE '%{$obj->videoURL}%') ";
+            $query.= "(text IS NULL OR text LIKE '%{$obj->text}%') ";
+            $query.= " OR ";
+            $query.= "(author IS NULL OR author LIKE '%{$obj->author}%') ";
             if($db!=null) 
             {
                return $db->query($query);
