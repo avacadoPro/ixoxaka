@@ -7,7 +7,7 @@ $classname = "blogBAL.php";
 spl_autoload_register(function ($class_name) {
     include 'classes/' . $class_name . '.php';
 });
-$dal = new blogDAL();
+$dal = new blogDAL(null);
 include '../Header1.php';
 $objBAL = new blogBAL();
 if (isset($_GET['id'])) {
@@ -19,6 +19,7 @@ if (isset($_GET['id'])) {
         $objBAL->content = $row['content'];
         $objBAL->image = $row['image'];
         $objBAL->tags = $row['tags'];
+        $objBAL->arthor = $row['arthor'];
         $objBAL->dateofcreation = $row['dateofcreation'];
 		//}
     }
@@ -46,6 +47,7 @@ if (isset($_POST['submit'])) {
     $objBAL->title = $_POST['title'];
     $objBAL->content = $_POST['content'];
     $objBAL->tags = $_POST['tags'];
+    $objBAL->arthor = $_POST['arthor'];
     $objBAL->dateofcreation = $_POST['dateofcreation'];
     $objBAL->image = ($isFile) ? "images/blog_images/" . $newFileName : $_POST['image'];
     if ($objBAL->id == 0) {
@@ -59,54 +61,7 @@ if (isset($_POST['submit'])) {
 }
 ?>
 
-<script  type="text/javascript">
- 
-  function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                $('#image')
-                    .attr('src', e.target.result)
-                    .width(150)
-                    .height(150);
-            };
-
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-    // tinyMCE.init({
-	// 			mode: 'textareas',
-	// 			theme: 'advanced',
-	// 			skin: 'o2k7',
-				
-	// 			plugins : "safari,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,tiny_mce_wiris",
-
-	// 			// Theme options
-	// 			theme_advanced_buttons1 : "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect",
-	// 			theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
-	// 			theme_advanced_buttons3 : "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,tiny_mce_wiris_formulaEditor,tiny_mce_wiris_CAS,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen",
-	// 			theme_advanced_buttons4 : "insertlayer,moveforward,movebackward,absolute,|,styleprops,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,template,pagebreak",
-	// 			theme_advanced_toolbar_location : "top",
-	// 			theme_advanced_toolbar_align : "left",
-	// 			theme_advanced_statusbar_location : "bottom",
-	// 			theme_advanced_resizing : true,
-
-	// 			// Drop lists for link/image/media/template dialogs
-	// 			template_external_list_url : "lists/template_list.js",
-	// 			external_link_list_url : "lists/link_list.js",
-	// 			external_image_list_url : "lists/image_list.js",
-	// 			media_external_list_url : "lists/media_list.js",
-
-	// 			// Replace values for the template plugin
-	// 			template_replace_values : {
-	// 				username : "Some User",
-	// 				staffid : "991234"
-	// 			}
-	// 		});
-
-
-</script>
+<script  type="text/javascript">function readURL(input) {if (input.files && input.files[0]) {var reader = new FileReader();reader.onload = function (e) {$('#image').attr('src', e.target.result).width(150).height(150);};reader.readAsDataURL(input.files[0]);}}</script>
 <!-- page content -->
 <div class="right_col" role="main">
     <div class="">
@@ -147,11 +102,18 @@ if (isset($_POST['submit'])) {
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class = "control-label col-md-2">Tags</label>
-                                    <div class="col-md-10">
-                                    <input type="text" name="tags" value="<?php echo $objBAL->tags; ?>"class = "form-control" required/>
+                                        <label class = "control-label col-md-2">Tags</label>
+                                        <div class="col-md-10">
+                                        <input type="text" name="tags" value="<?php echo $objBAL->tags; ?>"class = "form-control" required/>
+                                        </div>
                                     </div>
-                                </div>
+                                    <div class="form-group">
+                                        <label class = "control-label col-md-2">Arthor</label>
+                                        <div class="col-md-10">
+                                        <input type="text" name="arthor" value="<?php echo $objBAL->arthor; ?>"class = "form-control" required/>
+                                        </div>
+                                    </div>
+                               
                                 <div class="form-group">
                                     <label class = "control-label col-md-2">Content</label>
                                     <div class="col-md-10">

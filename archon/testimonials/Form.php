@@ -7,7 +7,7 @@ $classname="testimonialsBAL.php";
 spl_autoload_register(function ($class_name) {
     include 'classes/'.$class_name . '.php';
 });
-$dal=new testimonialsDAL();
+$dal=new testimonialsDAL(null);
 include '../Header1.php';
 $objBAL=new testimonialsBAL();
 if(isset($_GET['id']))

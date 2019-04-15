@@ -7,11 +7,11 @@ $classname = "portfolio1BAL.php";
 spl_autoload_register(function ($class_name) {
 	include 'classes/' . $class_name . '.php';
 });
-$dal = new portfolio1DAL();
+$dal = new portfolio1DAL(null);
 include '../Header1.php';
 $result = null;
 if (isset($_POST['btn_search'])) {
-	$objBAL = new portfolio1DAL();
+	$objBAL = new portfolio1DAL(null);
 	$objBAL->id = $_POST['txt_Search'];
 	$objBAL->title = $_POST['txt_Search'];
 	$objBAL->type = $_POST['txt_Search'];

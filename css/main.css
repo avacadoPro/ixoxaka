@@ -2798,7 +2798,7 @@ blockquote.blog-quote .quote-author {
 	line-height: 57px;
 }
 .scroll-top:hover {
-	background: ;
+	/* background: ; */
 	color: #c1c0b4;
 }
 /**/
@@ -3799,7 +3799,7 @@ section.text-section.parallaxed:after {
 	border-left: 9px solid transparent;
 	border-right: 9px solid transparent;
 	position: absolute;
-	top: -9px;\
+	top: -9px;
 	left: -webkit-calc(50% - 9px);
 	left: -moz-calc(50% - 9px);
 	left: calc(50% - 9px);

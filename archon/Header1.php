@@ -144,8 +144,10 @@ if(isset($_SESSION['type'])){
                     <li><a href="../blog"><i class="fa fa-edit"></i> Blog </a></li>
                     <li><a href="../aboutus"><i class="fa fa-edit"></i> About Us </a></li>
                     <li><a href="../contactus"><i class="fa fa-edit"></i> Contact Us </a></li>
+                    <li><a href="../contactus_user"><i class="fa fa-edit"></i> Contact Us User</a></li>
                     <li><a href="../funfacts"><i class="fa fa-edit"></i> Fun Facts </a></li>
                     <li><a href="../subscribers"><i class="fa fa-edit"></i>Subscribers </a></li>
+                    <li><a href="../packages"><i class="fa fa-edit"></i>Packages </a></li>
                      <!-- <li><a href="contact"><i class="fa fa-envelope"></i> Contact Messages </a></li> -->                  
                 </ul>
                 </div>

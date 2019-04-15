@@ -9,7 +9,7 @@ $classname = "aboutusBAL.php";
 spl_autoload_register(function ($class_name) {
     include 'classes/' . $class_name . '.php';
 });
-$dal = new aboutusDAL();
+$dal = new aboutusDAL(null);
 
 include '../Header1.php';
 $objBAL = new aboutusBAL();

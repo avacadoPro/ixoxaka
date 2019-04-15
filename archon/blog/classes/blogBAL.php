@@ -6,6 +6,7 @@ class blogBAL
     public $content="";
     public $image="";
     public $tags="";
+    public $arthor="";
     public $dateofcreation=null;
 }
 ?>

@@ -7,7 +7,7 @@ $classname = "funfactsBAL.php";
 spl_autoload_register(function ($class_name) {
     include 'classes/' . $class_name . '.php';
 });
-$dal = new funfactsDAL();
+$dal = new funfactsDAL(null);
 include '../Header1.php';
 $objBAL = new funfactsBAL();
 // if (isset($_GET['id'])) {

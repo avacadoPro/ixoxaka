@@ -2,10 +2,13 @@
 class portfolio1DAL
 {
     public $pdo = null;
-    function __construct()
+    public function __construct($connectionString)
     {
         try {
-            $connectionString = include './../../dbConfig.php';  $GLOBALS['pdo'] = new PDO($connectionString[0],$connectionString[1], $connectionString[2]);
+            if (!isset($connectionString)) {
+                $connectionString = include './../../dbConfig.php';
+            }
+            $GLOBALS['pdo'] = new PDO($connectionString[0], $connectionString[1], $connectionString[2]);
             $GLOBALS['pdo']->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		    // echo "Connected successfully"; 			
         } catch (PDOException $e) {

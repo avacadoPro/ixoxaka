@@ -7,7 +7,7 @@ $classname = "portfolio1BAL.php";
 spl_autoload_register(function ($class_name) {
     include 'classes/' . $class_name . '.php';
 });
-$dal = new portfolio1DAL();
+$dal = new portfolio1DAL(null);
 include '../Header1.php';
 $objBAL = new portfolio1BAL();
 if (isset($_GET['id'])) {

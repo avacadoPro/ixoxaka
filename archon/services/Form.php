@@ -7,7 +7,7 @@ $classname = "servicesBAL.php";
 spl_autoload_register(function ($class_name) {
     include 'classes/' . $class_name . '.php';
 });
-$dal = new servicesDAL();
+$dal = new servicesDAL(null);
 include '../Header1.php';
 $objBAL = new servicesBAL();
 if (isset($_GET['id'])) {

@@ -1,0 +1,65 @@
+.video-part
+{
+    width: 100%;
+    float: left;
+    position: relative;
+    overflow: hidden;
+    height: 800px;
+    margin-bottom: 10%;
+}
+.video-part video
+{
+    margin-bottom: 15%;
+    width: 100%;
+
+
+}
+.video-part-content
+{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    padding-top: 8%;
+    background:rgba(87, 117, 189, 0.5) ;
+}
+
+.video-part-content .carousel-caption
+{
+    position: relative !important;
+    left: 0%;
+    right: 0%;
+}
+.video-part-content .carousel-indicators
+{
+    top: 316px;
+}
+.hader .nav.navbar-nav.pull-right
+{
+    margin-top: 2%;
+}
+.video-part-content .carousel-caption h1
+{
+font-size: 50px;
+}
+.video-part-content .carousel-caption p
+{
+font-size: 20px;
+}
+.mt-10{
+    margin-bottom: 10em;
+}
+.contactus-contentBody{
+    margin-top: -18px;margin-bottom: 32px;
+
+}
+
+.slideanim {visibility:hidden;}
+  .slide {
+      animation-name: slide;
+      -webkit-animation-name: slide;
+      animation-duration: 1s;
+      -webkit-animation-duration: 1s;
+      visibility: visible;
+  }

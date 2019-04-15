@@ -7,16 +7,17 @@ $classname = "blogBAL.php";
 spl_autoload_register(function ($class_name) {
 	include 'classes/' . $class_name . '.php';
 });
-$dal = new blogDAL();
+$dal = new blogDAL(null);
 include '../Header1.php';
 $result = null;
 if (isset($_POST['btn_search'])) {
-	$objBAL=new blogDAL();
+	$objBAL=new blogDAL(null);
 	$objBAL->id=$_POST['txt_Search'];
 	$objBAL->title=$_POST['txt_Search'];
 	$objBAL->content=$_POST['txt_Search'];
 	$objBAL->image=$_POST['txt_Search'];
 	$objBAL->tags=$_POST['txt_Search'];
+	$objBAL->arthor=$_POST['txt_Search'];
 	$objBAL->dateofcreation=$_POST['txt_Search'];
 	$result=$db->Search($objBAL);
 } else {
@@ -78,6 +79,9 @@ if (isset($_POST['btn_search'])) {
 								Tags
 								</th>
 								<th>
+								Arthor
+								</th>
+								<th>
 								Date of Creation
 								</th>
 								<th>
@@ -94,6 +98,7 @@ if (isset($_POST['btn_search'])) {
 									echo '<td><img src="../'.$row['image'].'" style="height:50px;width:auto"/></td>';
 									echo '<td>'.$row['title']."</td>";
 									echo '<td>'.$row['tags']."</td>";
+									echo '<td>'.$row['arthor']."</td>";
 									echo '<td>'.$row['dateofcreation']."</td>";
 									echo '<td> <a href="Form.php?id='.$row['id'].'">Edit</a> | <a href="Form.php?did='.$row['id'].'">Delete</a></td>';
 									echo '</tr>';		

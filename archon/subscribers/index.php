@@ -7,12 +7,12 @@ $classname="subscribersBAL.php";
 spl_autoload_register(function ($class_name) {
     include 'classes/'.$class_name . '.php';
 });
-$dal=new subscribersDAL();
+$dal=new subscribersDAL(null);
 include '../Header1.php';
 $result=null;
 if(isset($_POST['btn_search']))
 {
-	$objBAL=new subscribersDAL();
+	$objBAL=new subscribersDAL(null);
 	$objBAL->id=$_POST['txt_Search'];
 	$objBAL->email=$_POST['txt_Search'];
 	$result=$dal->Search($objBAL);

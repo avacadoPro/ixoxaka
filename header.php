@@ -8,66 +8,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <!--styles -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/jquery.fancybox.css">
     <link rel="stylesheet" href="css/font-awesome.css">
     <link rel="stylesheet" href="css/jquery.owl.carousel.css">
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" type="text/css" href="rs-plugin/css/settings.css" media="screen" />
-    <style>    
-        .video-part
-        {
-            width: 100%;
-            float: left;
-            position: relative;
-            overflow: hidden;
-            height: 800px;
-            margin-bottom: 10%;
-        }
-        .video-part video
-        {
-            margin-bottom: 15%;
-            width: 100%;
-
-
-        }
-        .video-part-content
-        {
-            position: absolute;
-            top: 0%;
-            left: 0%;
-            width: 100%;
-            height: 100%;
-            padding-top: 8%;
-            background:rgba(87, 117, 189, 0.5) ;
-        }
-
-        .video-part-content .carousel-caption
-        {
-            position: relative !important;
-            left: 0%;
-            right: 0%;
-        }
-        .video-part-content .carousel-indicators
-        {
-            top: 316px;
-        }
-        .hader .nav.navbar-nav.pull-right
-        {
-            margin-top: 2%;
-        }
-        .video-part-content .carousel-caption h1
-        {
-        font-size: 50px;
-        }
-        .video-part-content .carousel-caption p
-        {
-        font-size: 20px;
-        }
-    </style>
+    
+    <link rel="stylesheet" href="css/custom.css">
     <!--styles -->
 </head>
 <body class="main-page pc" data-spy="scroll" data-target=".nav" data-offset="50">
@@ -105,13 +62,12 @@
                             <i class="fa fa-bars"></i>
                         </a>
                         <ul class="clear">
-                            <li><a href="index.php#about">ABOUT US</a></li>                            
-                            <li><a href="index.php#services">SERVICES</a> </li>
-                            <li><a href="index.php#team">Team</a></li>
-                            <li><a href="index.php#portfolio">PORTFOLIO</a></li>
-                            <li><a href="index.php#blog">BLOGS</a></li>
-                            <li><a href="index.php#clients">CLIENT</a></li>
-                            <li><a href="index.php#contact">CONTACT US</a></li>
+                            <li><a href="aboutus.php">ABOUT US</a></li>          
+                            <li><a href="team.php">Team</a></li>
+                            <li><a href="portfolio.php">PORTFOLIO</a></li>
+                            <li><a href="blogs.php">BLOGS</a></li>
+                            <li><a href="packages.php">PACKAGES</a></li>
+                            <li><a href="contactus.php">CONTACT US</a></li>
                             
                         </ul>
                     </nav>

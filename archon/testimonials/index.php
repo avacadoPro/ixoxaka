@@ -7,11 +7,11 @@ $classname="testimonialsBAL.php";
 spl_autoload_register(function ($class_name) {
     include 'classes/'.$class_name . '.php';
 });
-$dal=new testimonialsDAL();
+$dal=new testimonialsDAL(null);
 include '../Header1.php';
 $result=null;
 if (isset($_POST['btn_search'])) {
-    $objBAL=new testimonialsDAL();
+    $objBAL=new testimonialsDAL(null);
     $objBAL->id=$_POST['txt_Search'];
     $objBAL->text=$_POST['txt_Search'];
     $objBAL->author=$_POST['txt_Search'];

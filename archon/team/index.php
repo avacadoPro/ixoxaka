@@ -7,11 +7,11 @@ $classname = "teamBAL.php";
 spl_autoload_register(function ($class_name) {
 	include 'classes/' . $class_name . '.php';
 });
-$dal = new teamDAL();
+$dal = new teamDAL(null);
 include '../Header1.php';
 $result = null;
 if (isset($_POST['btn_search'])) {
-	$objBAL = new teamDAL();
+	$objBAL = new teamDAL(null);
 	$objBAL->id = $_POST['txt_Search'];
 	$objBAL->title = $_POST['txt_Search'];
 	$objBAL->type = $_POST['txt_Search'];

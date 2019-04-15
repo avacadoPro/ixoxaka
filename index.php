@@ -3,35 +3,68 @@
 require 'archon/lib/db.php';
 $db = new Database();
 
-$service_sql = "SELECT * FROM services";
-$service_result = $db->select($service_sql);
+require 'archon/services/classes/servicesDAL.php';
+$services_db=new servicesDAL(include('dbConfig.php'));
+$services=$services_db->LoadAll();
 
-$clients_sql = "SELECT * FROM clients";
-$clients_result = $db->select($clients_sql);
+require 'archon/clients/classes/clients1DAL.php';
+$clients_db=new clients1DAL(include('dbConfig.php'));
+$clients=$clients_db->LoadAll();
 
-$team_sql = "SELECT * FROM team";
-$team_result = $db->select($team_sql);
 
-$portfolio_sql = "SELECT * FROM portfolio";
-$portfolio_result = $db->select($portfolio_sql);
 
-$blog_sql = "SELECT * FROM blog";
-$blog_result = $db->select($blog_sql);
+require 'archon/team/classes/teamDAL.php';
+$team_db=new teamDAL(include('dbConfig.php'));
+$team=$team_db->LoadAll();
 
-$aboutus_sql = "SELECT * FROM aboutus WHERE id='1'";
-$aboutus_result = $db->select($aboutus_sql)[0];
 
-$contactus_sql = "SELECT * FROM contactus WHERE id='1'";
-$contactus_result = $db->select($contactus_sql)[0];
+require 'archon/portfolio/classes/portfolio1DAL.php';
+$portfolio_db=new portfolio1DAL(include('dbConfig.php'));
+$portfolios=$portfolio_db->LoadAll();
 
-$banner_sql = "SELECT * FROM banner WHERE id='1'";
-$banner_result = $db->select($banner_sql)[0];
 
-$testimonials_sql = "SELECT * FROM testimonials";
-$testimonials_result = $db->select($testimonials_sql);
+require 'archon/blog/classes/blogDAL.php';
+$blogs_db=new blogDAL(include('dbConfig.php'));
+$blogs=$blogs_db->LoadAll();
 
-$funfacts_sql = "SELECT * FROM funfacts WHERE id='1'";
-$funfacts_result = $db->select($funfacts_sql)[0];
+require 'archon/aboutus/classes/aboutusDAL.php';
+$aboutus_db=new aboutusDAL(include('dbConfig.php'));
+$aboutuss=$aboutus_db->Find(1);
+$aboutus=null;
+foreach ($aboutuss as $key => $value) {
+    $aboutus=$value;
+}
+
+
+require 'archon/contactus/classes/contactusDAL.php';
+$contactus_db=new contactusDAL(include('dbConfig.php'));
+$contactuss=$contactus_db->Find(1);
+$contactus=null;
+foreach ($contactuss as $key => $value) {
+    $contactus=$value;
+}
+
+
+require 'archon/banner-video/classes/bannerDAL.php';
+$banner_db=new bannerDAL(include('dbConfig.php'));
+$banners=$banner_db->Find(1);
+$banner=null;
+foreach ($banners as $key => $value) {
+    $banner=$value;
+}
+
+require 'archon/funfacts/classes/funfactsDAL.php';
+$funfacts_db=new funfactsDAL(include('dbConfig.php'));
+$funfacts=$funfacts_db->Find(1);
+$funfact=null;
+foreach ($funfacts as $key => $value) {
+    $funfact=$value;
+}
+
+
+require 'archon/testimonials/classes/testimonialsDAL.php';
+$testimonials_db=new testimonialsDAL(include('dbConfig.php'));
+$testimonials=$testimonials_db->LoadAll();
 
 if (isset($_POST['submit'])) {
     $email=$_POST['email'];
@@ -47,7 +80,7 @@ include 'header.php'
     <!-- video -->
     <div class="video-part">
         <video autoplay="autoplay" loop="loop" muted="muted">
-            <source src="archon/<?php echo $banner_result['videoURL'] ?>" type="video/mp4">
+            <source src="archon/<?php echo $banner['videoURL'] ?>" type="video/mp4">
          </video>
     </div>
     <!-- video -->
@@ -62,16 +95,16 @@ include 'header.php'
                         <span class="main-title">ABOUT US</span>
                         <span class="slash-icon">/
                             <!-- <i class="fa fa-angle-double-right"></i> --></span><br />
-                        <?php echo $aboutus_result['title'] ?>
+                        <?php echo $aboutus['title'] ?>
                     </div>
                     <!-- section title -->
                     <dl>
-                        <?php echo $aboutus_result['content'] ?>
+                        <?php echo $aboutus['content'] ?>
                     </dl>
 
                 </div>
                 <div class="grid-col grid-col-6 content-img col-sd-12">
-                    <img class="ipad" src="archon/<?php echo $aboutus_result['image'] ?>" alt>
+                    <img class="ipad" src="archon/<?php echo $aboutus['image'] ?>" alt>
 
                 </div>
             </div>
@@ -91,7 +124,7 @@ include 'header.php'
                 </div>
                 <div class="grid-col-row">
 
-                    <?php foreach ($service_result as $key) {  ?>
+                    <?php foreach ($services as $key) {  ?>
 
                     <div class="item-example grid-col grid-col-3">
                         <div class="rectangle"> <i><img class="ipad" src="archon/<?php echo $key['image']; ?>" alt
@@ -123,19 +156,19 @@ include 'header.php'
                     </div>
                     <div class="grid-col grid-col-3">
                         <div class="counter-block">
-                            <div class="counter" data-count="<?php echo $funfacts_result['creativeWork'] ?>"></div>
+                            <div class="counter" data-count="<?php echo $funfact['creativeWork'] ?>"></div>
                             <div class="counter-name">Creative Work</div>
                         </div>
                     </div>
                     <div class="grid-col grid-col-3">
                         <div class="counter-block">
-                            <div class="counter" data-count="<?php echo $funfacts_result['satisfiedClients'] ?>"></div>
+                            <div class="counter" data-count="<?php echo $funfact['satisfiedClients'] ?>"></div>
                             <div class="counter-name">Satisfied Clients</div>
                         </div>
                     </div>
                     <div class="grid-col grid-col-3">
                         <div class="counter-block last">
-                            <div class="counter" data-count="<?php echo $funfacts_result['cupsofcoffee'] ?>"></div>
+                            <div class="counter" data-count="<?php echo $funfact['cupsofcoffee'] ?>"></div>
                             <div class="counter-name">Cups Of Coffe</div>
                         </div>
                     </div>
@@ -160,7 +193,7 @@ include 'header.php'
         <div class="grid-row large-team">
             <div class="grid-col-row clear">
 
-                <?php foreach ($team_result as $key) {  ?>
+                <?php foreach ($team as $key) {  ?>
 
                 <div class="grid-col grid-col-3">
                     <div class="team-item">
@@ -208,7 +241,7 @@ include 'header.php'
             </div>
         </div>
         <div class="isotope">
-            <?php foreach ($portfolio_result as $key) {?>
+            <?php foreach ($portfolios as $key) {?>
             <div class="item design photo video web">
                 <div class="portfolio-hover">
                     <div class="portfolio-info">
@@ -255,7 +288,7 @@ include 'header.php'
             <div class="grid-row">
                 <div class="blog">
 
-                    <?php foreach ($blog_result as $key => $value) {?>
+                    <?php foreach ($blogs as $key => $value) { if($key<6) {?>
                     <div class="item clear">
                         <!-- <div class="date-round" style="opacity: 0.2;">
                                     <div class="date-mounth">
@@ -291,14 +324,14 @@ include 'header.php'
                             <p> <?php echo $value['content'] ?></p>
                         </div>
                         <div class="post-info clear">
-                            <span><i class="fa fa-calendar"></i><?php echo $value['dateofcreation']; ?></span>
+                            <span><i class="fa fa-calendar"></i><?php echo " Posted ".$value['dateofcreation']." by ".$value['arthor']; ?></span>
                             <!-- <span><i class="fa fa-edit"></i> Admin</span>
                                     <span><i class="fa fa-comment"></i> 2 Coments</span>
                                     <span><i class="fa fa-bookmark"></i> Audio</span> -->
                             <a class="button" href="blog.php?id=<?php echo $value['id'];?>">/ READ MORE</a>
                         </div>
                     </div>
-                    <?php } ?>
+                    <?php } } ?>
 
 
                 </div>
@@ -335,7 +368,7 @@ include 'header.php'
                             <div id="gallery-three-items" class="owl-carousel" style="height: 150px">
 
 
-                                <?php foreach ($clients_result as $key) {  ?>
+                                <?php foreach ($clients as $key) {  ?>
 
                                 <div class="gallery-item picture text-center" style="height: 150px; width: auto">
                                     <div class="hover-effect"></div>
@@ -369,7 +402,7 @@ include 'header.php'
         <div class="grid-row">
             <div class="parallax-content-third">
                 <div id="client-carousel" class="owl-carousel">
-                    <?php foreach ($testimonials_result as $key => $value) {?>
+                    <?php foreach ($testimonials as $key => $value) {?>
                     <div>
                         <p class="testimonial-title">TESTIMONIALS</p>
                         <div class="testimonial-separator"></div>
@@ -400,7 +433,7 @@ include 'header.php'
                 <i class="fa  fa-globe"></i>
                 <div class="contact-content">
                     <div class="kind-contact">Where we are:</div>
-                    <p><?php echo $contactus_result['address'] ?></p>
+                    <p><?php echo $contactus['address'] ?></p>
                 </div>
             </div>
             <div class="grid-contact">
@@ -408,7 +441,7 @@ include 'header.php'
                 <div class="contact-content">
                     <div class="kind-contact">Customer Care:</div>
                     <p><a
-                            href="tel:<?php echo $contactus_result['phoneNo'] ?>"><?php echo $contactus_result['phoneNo'] ?></a>
+                            href="tel:<?php echo $contactus['phoneNo'] ?>"><?php echo $contactus['phoneNo'] ?></a>
                     </p>
                 </div>
             </div>
@@ -417,7 +450,7 @@ include 'header.php'
                 <div class="contact-content">
                     <div class="kind-contact">General Email:</div>
                     <p><a
-                            href="mailto:<?php echo $contactus_result['email'] ?>"><?php echo $contactus_result['email'] ?></a>
+                            href="mailto:<?php echo $contactus_result['email'] ?>"><?php echo $contactus['email'] ?></a>
                     </p>
                 </div>
             </div>
@@ -425,7 +458,7 @@ include 'header.php'
                 <i class="fa  fa-power-off"></i>
                 <div class="contact-content">
                     <div class="kind-contact">Work Time:</div>
-                    <p><?php echo $contactus_result['workTime'] ?></p>
+                    <p><?php echo $contactus['workTime'] ?></p>
                 </div>
             </div>
         </div><br><br>
@@ -475,51 +508,4 @@ include 'header.php'
     <!-- contact -->
 
 
-    <!-- page footer -->
-    <footer id="footer">
-        <div class="grid-row clear">
-            <div class="footer">
-                <div id="copyright">Copyright<span> COORDINATOR MARKETING & SERVICES</span> 2016-All Rights Reserved
-                </div>
-                <a href="index.html" class="footer-logo"><img
-                        src="images/slider/9ef32698-8604-46dd-83fc-fe5241fc4b04.jpg" alt=""></a>
-                <!-- <div class="social">
-                                <a href="#"><div class="contact-round"><i class="fa fa-twitter"></i></div></a>
-                                <a href="#"><div class="contact-round"><i class="fa fa-facebook"></i></div></a>
-                                <a href="#"><div class="contact-round"><i class="fa fa-skype"></i></div></a>
-                                <a href="#"><div class="contact-round"><i class="fa fa-rss"></i></div></a>
-                                <a href="#"><div class="contact-round"><i class="fa fa-linkedin"></i></div></a>
-                            </div> -->
-            </div>
-        </div>
-    </footer>
-    <!--/ page footer -->
-    <a href="#" id="scroll-top" class="scroll-top"><i class="fa fa-angle-up"></i></a>
-    <!-- scripts -->
-    <script src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="rs-plugin/js/jquery.themepunch.tools.min.js"></script>
-    <script type="text/javascript" src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
-    <script type="text/javascript" src="rs-plugin/js/extensions/revolution.extension.video.min.js"></script>
-    <script type="text/javascript" src="rs-plugin/js/extensions/revolution.extension.slideanims.min.js"></script>
-    <script type="text/javascript" src="rs-plugin/js/extensions/revolution.extension.actions.min.js"></script>
-    <script type="text/javascript" src="rs-plugin/js/extensions/revolution.extension.layeranimation.min.js">
-    </script>
-    <script type="text/javascript" src="rs-plugin/js/extensions/revolution.extension.kenburn.min.js"></script>
-    <script type="text/javascript" src="rs-plugin/js/extensions/revolution.extension.navigation.min.js"></script>
-    <script type="text/javascript" src="rs-plugin/js/extensions/revolution.extension.migration.min.js"></script>
-    <script type="text/javascript" src="rs-plugin/js/extensions/revolution.extension.parallax.min.js"></script>
-    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-    <script type="text/javascript"
-        src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/src/infobox_packed.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/jquery.easing.1.3.js"></script>
-    <script src="js/wow.min.js"></script>
-    <script src="js/jquery.isotope.min.js"></script>
-    <script src="js/jquery.owl.carousel.js"></script>
-    <script src="js/jquery.fancybox.pack.js"></script>
-    <script src="js/jquery.fancybox-media.js"></script>
-    <script src="js/retina.min.js"></script>
-    <!--/ scripts -->
-</body>
-
-</html>
+<?php include 'footer.php'; ?>

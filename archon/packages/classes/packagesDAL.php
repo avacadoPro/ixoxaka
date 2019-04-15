@@ -1,14 +1,15 @@
 <?php 
-class blogDAL
+class packagesDAL
 {
     public $pdo=null;
-    public function __construct($connectionString)
-    {
-        try {
-            if (!isset($connectionString)) {
+    function __construct($connectionString)
+    {		
+	    try 
+	    {
+	        if(!isset($connectionString)){
                 $connectionString = include './../../dbConfig.php';
-            }
-            $GLOBALS['pdo'] = new PDO($connectionString[0], $connectionString[1], $connectionString[2]);
+	        }
+		    $GLOBALS['pdo'] = new PDO($connectionString[0],$connectionString[1], $connectionString[2]);
 		    $GLOBALS['pdo']->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		    //echo "Connected successfully"; 			
         }
@@ -18,71 +19,80 @@ class blogDAL
         }
     }
     	public function Add($obj){
-
     		$db=$GLOBALS['pdo'];
-            $query="INSERT INTO blog( "; 
+            $query="INSERT INTO packages( "; 
             $query.=" title "; 
             $query.=", "; 
-            $query.=" content "; 
+            $query.=" price "; 
             $query.=", "; 
-            $query.=" image "; 
+            $query.=" type "; 
             $query.=", "; 
-            $query.=" tags ";             
+            $query.=" personalLocker "; 
             $query.=", "; 
-            $query.=" arthor "; 
+            $query.=" freeAccess "; 
             $query.=", "; 
-            $query.=" dateofcreation "; 
+            $query.=" personalTrainer "; 
+            $query.=", "; 
+            $query.=" NutritionPlan "; 
+            $query.=", "; 
+            $query.=" FreeMassage "; 
             $query.=") VALUES ("; 
             $query.="'{$obj->title}'"; 
             $query.=", "; 
-            $query.="'{$obj->content}'"; 
+            $query.="'{$obj->price}'"; 
             $query.=", "; 
-            $query.="'{$obj->image}'"; 
+            $query.="'{$obj->type}'"; 
             $query.=", "; 
-            $query.="'{$obj->tags}'"; 
+            $query.="'{$obj->personalLocker}'"; 
             $query.=", "; 
-            $query.="'{$obj->arthor}'"; 
+            $query.="'{$obj->freeAccess}'"; 
             $query.=", "; 
-            $query.="'{$obj->dateofcreation}'"; 
+            $query.="'{$obj->personalTrainer}'"; 
+            $query.=", "; 
+            $query.="'{$obj->NutritionPlan}'"; 
+            $query.=", "; 
+            $query.="'{$obj->FreeMassage}'"; 
             $query.=");"; 
                 $db->query($query);
        }
-    	public function Update($obj){           
-
-
+    	public function Update($obj){
     		$db=$GLOBALS['pdo'];
-            $query="UPDATE blog SET "; 
+            $query="UPDATE packages SET "; 
             $query.="title='{$obj->title}'"; 
             $query.=", "; 
-            $query.="content='{$obj->content}'"; 
+            $query.="price='{$obj->price}'"; 
             $query.=", "; 
-            $query.="image='{$obj->image}'"; 
+            $query.="type='{$obj->type}'"; 
             $query.=", "; 
-            $query.="tags='{$obj->tags}'"; 
+            $query.="personalLocker='{$obj->personalLocker}'"; 
             $query.=", "; 
-            $query.="arthor='{$obj->arthor}'"; 
+            $query.="freeAccess='{$obj->freeAccess}'"; 
             $query.=", "; 
-            $query.="dateofcreation='{$obj->dateofcreation}'"; 
+            $query.="personalTrainer='{$obj->personalTrainer}'"; 
+            $query.=", "; 
+            $query.="NutritionPlan='{$obj->NutritionPlan}'"; 
+            $query.=", "; 
+            $query.="FreeMassage='{$obj->FreeMassage}'"; 
             $query.="WHERE id='{$obj->id}' ;"; 
              $db->query($query);
        }
     	public function Delete($i){
     		$db=$GLOBALS['pdo'];
-            $query="DELETE FROM blog"; 
+            $query="DELETE FROM packages"; 
             $query.=" WHERE id='{$i}'"; 
             $query.=";"; 
             $db->query($query);
        }
     	public function Find($i){
     		$db=$GLOBALS['pdo'];
-            $query="SELECT * FROM blog"; 
+            $query="SELECT * FROM packages"; 
             $query.=" WHERE id='{$i}'"; 
             $query.=";"; 
                return $db->query($query);
        }
     	public function LoadAll(){
     		$db=$GLOBALS['pdo'];
-            $query="SELECT * FROM blog;"; 
+            $query="SELECT * FROM packages;"; 
             if($db!=null) 
             {
                return $db->query($query);
@@ -90,20 +100,14 @@ class blogDAL
        }
     	public function Search($obj){
     		$db=$GLOBALS['pdo'];
-            $query="SELECT * FROM blog WHERE "; 
+            $query="SELECT * FROM packages WHERE "; 
             $query.= "(id IS NULL OR id LIKE '%{$obj->id}%') ";
             $query.= " OR ";
             $query.= "(title IS NULL OR title LIKE '%{$obj->title}%') ";
             $query.= " OR ";
-            $query.= "(content IS NULL OR content LIKE '%{$obj->content}%') ";
+            $query.= "(price IS NULL OR price LIKE '%{$obj->price}%') ";
             $query.= " OR ";
-            $query.= "(image IS NULL OR image LIKE '%{$obj->image}%') ";
-            $query.= " OR ";
-            $query.= "(tags IS NULL OR tags LIKE '%{$obj->tags}%') ";
-            $query.= " OR ";
-            $query.= "(arthor IS NULL OR tags LIKE '%{$obj->arthor}%') ";
-            $query.= " OR ";
-            $query.= "(dateofcreation IS NULL OR dateofcreation LIKE '%{$obj->dateofcreation}%') ";
+            $query.= "(type IS NULL OR type LIKE '%{$obj->type}%') ";
             if($db!=null) 
             {
                return $db->query($query);
