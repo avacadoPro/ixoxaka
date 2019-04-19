@@ -20,7 +20,7 @@ class packageServicesSelectedDAL
     }
     	public function Add($obj){
     		$db=$GLOBALS['pdo'];
-            $query="INSERT INTO packageServicesSelected( "; 
+            $query="INSERT INTO packageservicesselected( "; 
             $query.=" packageId "; 
             $query.=", "; 
             $query.=" packegeServiceId "; 
@@ -33,7 +33,7 @@ class packageServicesSelectedDAL
        }
     	public function Update($obj){
     		$db=$GLOBALS['pdo'];
-            $query="UPDATE packageServicesSelected SET "; 
+            $query="UPDATE packageservicesselected SET "; 
             $query.="packageId='{$obj->packageId}'"; 
             $query.=", "; 
             $query.="packegeServiceId='{$obj->packegeServiceId}'"; 
@@ -42,21 +42,21 @@ class packageServicesSelectedDAL
        }
     	public function Delete($i){
     		$db=$GLOBALS['pdo'];
-            $query="DELETE FROM packageServicesSelected"; 
+            $query="DELETE FROM packageservicesselected"; 
             $query.=" WHERE id='{$i}'"; 
             $query.=";"; 
             $db->query($query);
        }
     	public function Find($i){
     		$db=$GLOBALS['pdo'];
-            $query="SELECT * FROM packageServicesSelected"; 
+            $query="SELECT * FROM packageservicesselected"; 
             $query.=" WHERE id='{$i}'"; 
             $query.=";"; 
                return $db->query($query);
        }
     	public function LoadAll(){
     		$db=$GLOBALS['pdo'];
-            $query="SELECT * FROM packageServicesSelected;"; 
+            $query="SELECT * FROM packageservicesselected;"; 
             if($db!=null) 
             {
                return $db->query($query);
@@ -65,7 +65,7 @@ class packageServicesSelectedDAL
        public function GetMaxID()
     {
         $db = $GLOBALS['pdo'];
-        $query = "SELECT * FROM packageServicesSelected ORDER BY id DESC LIMIT 0, 1";
+        $query = "SELECT * FROM packageservicesselected ORDER BY id DESC LIMIT 0, 1";
         if ($db != null) {
             return $db->query($query);
         }
@@ -73,14 +73,14 @@ class packageServicesSelectedDAL
        public function LoadBypackageId($packageId)
        {
            $db=$GLOBALS['pdo'];
-           $query="SELECT * FROM packageServicesSelected WHERE packageId=".$packageId.";";
+           $query="SELECT * FROM packageservicesselected WHERE packageId=".$packageId.";";
            if ($db!=null) {
                return $db->query($query);
            }
        }
     	public function Search($obj){
     		$db=$GLOBALS['pdo'];
-            $query="SELECT * FROM packageServicesSelected WHERE "; 
+            $query="SELECT * FROM packageservicesselected WHERE "; 
             $query.= "(id IS NULL OR id LIKE '%{$obj->id}%') ";
             $query.= " OR ";
             $query.= "(packageId IS NULL OR packageId LIKE '%{$obj->packageId}%') ";
