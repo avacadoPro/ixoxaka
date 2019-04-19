@@ -1,4 +1,4 @@
-﻿var apiURL="/api/api.php/records/";
+﻿var root="/";
 var imageUploadingAPI="/archon/CMSImageUploaderAPI.php";
 var CMS_APP = angular.module('CMS_APP',["ngSanitize"]);
 CMS_APP.directive("ngUploadChange", function () {

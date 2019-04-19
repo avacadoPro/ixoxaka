@@ -29,7 +29,7 @@ if (!isset($_SESSION['id'])) {
                 $_SESSION['password']   = $key['password'];
                 $_SESSION['role']   = $key['role'];
                 $_SESSION['isLogin']    = true;
-                echo "<script> location.href='portfolio/index.php'; </script>";
+                echo "<script> location.href='portfolio1'; </script>";
                 exit;     
                
               }

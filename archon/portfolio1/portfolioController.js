@@ -6,18 +6,21 @@ CMS_APP.controller('PortFolioController', function ($scope, $http, scopeService,
     $scope.selectedprotfoliocategoriesDeleted = [];
     $scope.formBusy = false;
     $scope.searchTxt="";
+    const APIURL_portfolio=root+"archon/portfolio/api/index.php";
+    const APIURL_portfoliocategories=root+"archon/portfolioCategories/api/index.php";
+    const APIURL_selectedProtfolioCategories=root+"archon/selectedProtfolioCategories/api/index.php";
     $scope.getPortfolios = function () {
-        $http.get(apiURL + "/portfolio").then(function (res) {
+        $http.get(APIURL_portfolio).then(function (res) {
             scopeService.safeApply($scope, function () {               
-                $scope.portfolios = res.data.records;
+                $scope.portfolios = res.data;
                 $scope.search();
                 // $scope.portfolios.forEach(function (portfolio) {
                 //     $http.get(apiURL + "/selectedprotfoliocategories?filter=portfolioId,eq," + portfolio.id).then(function (res) {
                 //         let categories = "";
-                //         res.data.records.forEach(function (selectedprotfoliocategory, key) {
+                //         res.data.forEach(function (selectedprotfoliocategory, key) {
                 //             $http.get(apiURL + "/portfoliocategories/" + selectedprotfoliocategory.portfolioCategoryId).then(cat => {
                 //                 categories += cat.data.title;
-                //                 if (key != res.data.records.length - 1)
+                //                 if (key != res.data.length - 1)
                 //                     categories += ","
                 //                 portfolio['categoriesComma'] = categories;                                
                 //                 $scope.search();
@@ -67,9 +70,9 @@ CMS_APP.controller('PortFolioController', function ($scope, $http, scopeService,
     $scope.getallcategories = function () {
         $scope.categories = [];
         $scope.selectedprotfoliocategoriesDeleted = [];
-        $http.get(apiURL + "/portfoliocategories").then(function (res) {
+        $http.get(APIURL_portfoliocategories).then(function (res) {
             scopeService.safeApply($scope, function () {
-                res.data.records.forEach(function (category) {
+                res.data.forEach(function (category) {
                     category["isCheck"] = false;
                     $scope.categories.push(category);
                 })
@@ -115,8 +118,8 @@ CMS_APP.controller('PortFolioController', function ($scope, $http, scopeService,
         $scope.portfolio["errors"] = {
             imageError: null
         };
-        $http.get(apiURL + "/selectedprotfoliocategories?filter=portfolioId,eq," + portfolio.id).then(function (res) {
-            res.data.records.forEach(selectedprotfoliocategory => {
+        $http.get(APIURL_selectedProtfolioCategories+"?portfolioId=" + portfolio.id).then(function (res) {
+            res.data.forEach(selectedprotfoliocategory => {
                 findInCategories(selectedprotfoliocategory);
             });
 
@@ -125,8 +128,10 @@ CMS_APP.controller('PortFolioController', function ($scope, $http, scopeService,
 
     function findInCategories(selectedprotfoliocategory) {
         let category = $scope.categories.find(m => m.id == selectedprotfoliocategory.portfolioCategoryId);
-        category.isCheck = true;
-        category["selectedprotfoliocategoryId"] = selectedprotfoliocategory.id;
+        if(category){
+            category["isCheck"] = true;
+            category["selectedprotfoliocategoryId"] = selectedprotfoliocategory.id;
+        }
     }
 
     $scope.save = function () {
@@ -152,11 +157,11 @@ CMS_APP.controller('PortFolioController', function ($scope, $http, scopeService,
         
         if (portfolio.id == 0) {
             delete portfolio["id"];
-            $http.post(apiURL + "/portfolio", portfolio).then(function (resPortfolio) {
-                let portfolioId = resPortfolio.data;
+            $http.post(APIURL_portfolio, portfolio).then(function (resPortfolio) {
+                let portfolioId = resPortfolio.data.id;
                 $scope.categories.forEach(function (item) {
                     if (item.isCheck) {
-                        $http.post(apiURL + "/selectedprotfoliocategories", {
+                        $http.post(APIURL_selectedProtfolioCategories, {
                             "portfolioId": portfolioId,
                             "portfolioCategoryId": item.id
                         });
@@ -170,19 +175,18 @@ CMS_APP.controller('PortFolioController', function ($scope, $http, scopeService,
                 }, 1000)
             });
         } else {
-            console.log(portfolio);
             
-            $http.put(apiURL + "/portfolio/" + portfolio.id, portfolio).then(function (resPortfolio) {
+            $http.put(APIURL_portfolio,portfolio ).then(function (resPortfolio) {
                 $scope.categories.forEach(function (item) {
                     if (item.isCheck && !item.selectedprotfoliocategoryId) {
-                        $http.post(apiURL + "/selectedprotfoliocategories", {
+                        $http.post(APIURL_selectedProtfolioCategories, {
                             "portfolioId": portfolio.id,
                             "portfolioCategoryId": item.id
                         });
                     }
                 });
                 $scope.selectedprotfoliocategoriesDeleted.forEach(function (item) {
-                    $http.delete(apiURL + "/selectedprotfoliocategories/" + item);
+                    $http.delete(APIURL_selectedProtfolioCategories + "?id=" + item);
                 })
                 $timeout(m => {
                     $('#myModal').modal('hide');
@@ -211,10 +215,10 @@ CMS_APP.controller('PortFolioController', function ($scope, $http, scopeService,
     }
     $scope.delete = function (portfolioId) {
         if (confirm('Do you really want to delete the Portfolio?')) {
-            $http.delete(apiURL + "/portfolio/" + portfolioId).then(function (res) {
-                $http.get(apiURL + "/selectedprotfoliocategories?filter=portfolioId,eq," + portfolioId).then(function (res) {
-                    res.data.records.forEach(selectedprotfoliocategory => {
-                        $http.delete(apiURL + "/selectedprotfoliocategories/" + selectedprotfoliocategory.id);
+            $http.delete(APIURL_portfolio+"?id="+portfolioId).then(function (res) {
+                $http.get(APIURL_selectedProtfolioCategories+"?portfolioId="  + portfolioId).then(function (res) {
+                    res.data.forEach(selectedprotfoliocategory => {
+                        $http.delete(APIURL_selectedProtfolioCategories+"?id=" + selectedprotfoliocategory.id);
                     });
 
                 })

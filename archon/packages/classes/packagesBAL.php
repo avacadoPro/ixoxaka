@@ -5,6 +5,7 @@ class packagesBAL
     public $title="";
     public $price=0;
     public $type="";
+    public $duration="";
     // public $personalLocker=false;
     // public $freeAccess=false;
     // public $personalTrainer=false;

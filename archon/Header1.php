@@ -60,8 +60,8 @@ if (isset($_SESSION['id'])) {
   <script src="../js/editor/bootstrap-wysiwyg.js"></script>
   <script src="../js/editor/external/jquery.hotkeys.js"></script>
   <script src="../js/editor/external/google-code-prettify/prettify.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular-sanitize.js"></script>
 <script src="../../js/angular/tinymce.js"></script>
   <script src="../../js/angular/CMS_APP.js"></script>
   <script src="../../js/angular/scopeService.js"></script>
