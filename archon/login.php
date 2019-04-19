@@ -1,47 +1,52 @@
 <?php session_name('hosthubSession');
-  session_start(); 
-
-require 'lib/db.php';
-$db = new Database();
+  session_start();
+  $classname="usersDAL.php";
+  spl_autoload_register(function ($class_name) {
+      include 'users/classes/'.$class_name . '.php';
+  });
+  $classname="usersBAL.php";
+  spl_autoload_register(function ($class_name) {
+      include 'users/classes/'.$class_name . '.php';
+  });
+  $userDb=new usersDAL(include('../dbConfig.php'));
 
 $error = "";
-
-if(isset($_POST['submit'])){
-
-
-    $email    = $_POST['email'];
-    $password = $_POST['password'];
-
-    $sql = "SELECT * FROM users WHERE email='$email' AND password='$password'";
-    $result = $db->select($sql);
-
-    $total_results = iterator_count($result); 
-
-      if($total_results > 0){
-
-            foreach ($result as $key) {
-              $_SESSION['id']         = $key['id'];
-              $_SESSION['name']       = $key['name'];
-              $_SESSION['email']      = $key['email'];
-              $_SESSION['password']   = $key['password'];
-              $_SESSION['isLogin']    = true;
-              
-              echo "<script> location.href='portfolio/index.php'; </script>";
-              exit;
-
-
-
-            } 
-    
-        }
-        elseif($total_results === 0){
-
+if (!isset($_SESSION['id'])) {
+    if (isset($_POST['submit'])) {
+        $email    = $_POST['email'];
+        $password = $_POST['password'];
+        $authResult=$userDb->Auth($email, $password);
+        $isUser=iterator_count($authResult);
+        if ($isUser) {
+            foreach ($userDb->Auth($email, $password) as $key) {
+             
+              if($key['status']==0){
+                $error = "Account is Inactive";
+              }else if($key['role']=="Admin"||$key['role']=="superAdmin"){    
+                $_SESSION['id']         = $key['id'];
+                $_SESSION['name']       = $key['name'];
+                $_SESSION['email']      = $key['email'];
+                $_SESSION['password']   = $key['password'];
+                $_SESSION['role']   = $key['role'];
+                $_SESSION['isLogin']    = true;
+                echo "<script> location.href='portfolio/index.php'; </script>";
+                exit;     
+               
+              }
+              else{
+                $error = "Access Denied";
+              }
+               
+            }
+        } else {
             $error = "Username or password incorrect";
-            header("Location: login.php");
-          
-         }
-
+        }
+    }
+} else {
+    echo "<script> location.href='portfolio1'; </script>";
 }
+
+
 
 
 
@@ -54,7 +59,7 @@ if(isset($_POST['submit'])){
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->

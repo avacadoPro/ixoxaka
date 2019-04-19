@@ -8,6 +8,15 @@ spl_autoload_register(function ($class_name) {
     include 'classes/' . $class_name . '.php';
 });
 $dal = new portfolio1DAL(null);
+
+require "../portfolioCategories/classes/portfolioCategoriesDAL.php";
+$portfolioCategoriesDAL=new portfolioCategoriesDAL(null);
+
+require "../selectedProtfolioCategories/classes/selectedProtfolioCategoriesDAL.php";
+$selectedProtfolioCategoriesDAL=new selectedProtfolioCategoriesDAL(null);
+require "../selectedProtfolioCategories/classes/selectedProtfolioCategoriesBAL.php";
+
+
 include '../Header1.php';
 $objBAL = new portfolio1BAL();
 if (isset($_GET['id'])) {
@@ -46,11 +55,22 @@ if (isset($_POST['submit'])) {
     $objBAL->image = ($isFile)? "images/portfolio_images/" . $newFileName:$_POST['image'];
     if ($objBAL->id == 0) {
         $dal->Add($objBAL);
+        $portfolioId= $dal->GetMaxID()->fetch()['id'];
+        if (isset($_POST['categories'])) {
+            foreach ($_POST['categories'] as $key => $categoryId) {
+                $selectedProtfolioCategoriesBAL=new selectedProtfolioCategoriesBAL();
+                $selectedProtfolioCategoriesBAL->portfolioId=$portfolioId;
+                $selectedProtfolioCategoriesBAL->portfolioCategoryId=$categoryId;
+                $selectedProtfolioCategoriesDAL->Add($selectedProtfolioCategoriesBAL);
+            }
+        }
+        
         echo "<script type='text/javascript'>location.href = 'index.php';</script>";
     } else {
         $dal->Update($objBAL);
         echo "<script type='text/javascript'>location.href = 'index.php';</script>";
     }
+    
 
 }
 ?>
@@ -119,6 +139,16 @@ if (isset($_POST['submit'])) {
                                             class="form-control" required />
                                     </div>
                                 </div>
+                                <div class="form-group">                                    
+                                    <label class="control-label col-md-2">Categories</label>
+                                    <div class="row" style="height:150px;overflow-y:scroll;padding:10px">
+                                        <?php  foreach ($portfolioCategoriesDAL->LoadAll() as $key => $value) {
+                                           echo "<input type=\"checkbox\" name=\"categories[]\" value=\"".$value['id'] ."\"/> - ".$value['title'] ."<br>";
+                                        }?>
+                                         
+
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-2">Type</label>
                                     <div class="col-md-10">
@@ -141,7 +171,7 @@ if (isset($_POST['submit'])) {
 							</div>
 							
                         </form>
-                        <a href="../portfolio1">Back to List</a>
+                        <a href="../portfolio">Back to List</a>
 
                     </div>
                 </div>

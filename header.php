@@ -25,6 +25,13 @@
     <link rel="stylesheet" type="text/css" href="rs-plugin/css/settings.css" media="screen" />
     
     <link rel="stylesheet" href="css/custom.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
+    <script src="js/angular/CMS_APP.js"></script>
+    <script src="js/angular/scopeService.js"></script>
+    <script src="js/angular/imageUploadService.js"></script>
+    <script src="js/angular/imageUploadService.js"></script>
+    <script src="packages/packagesFrontEndController.js"></script>
     <!--styles -->
 </head>
 <body class="main-page pc" data-spy="scroll" data-target=".nav" data-offset="50">
@@ -61,10 +68,11 @@
                         <a href="#" class="switcher">
                             <i class="fa fa-bars"></i>
                         </a>
-                        <ul class="clear">
-                            <li><a href="aboutus.php">ABOUT US</a></li>          
-                            <li><a href="team.php">Team</a></li>
-                            <li><a href="portfolio.php">PORTFOLIO</a></li>
+                        <ul class="clear" style="display: block; left: -12.5em; top: 2.2em; width: 100%;">
+                            <li><a href="index.php">HOME</a></li>     
+                            <li><a href="index.php#about">ABOUT US</a></li>          
+                            <li><a href="index.php#team">TEAM</a></li>
+                            <li><a href="portfolios.php">PORTFOLIO</a></li>
                             <li><a href="blogs.php">BLOGS</a></li>
                             <li><a href="packages.php">PACKAGES</a></li>
                             <li><a href="contactus.php">CONTACT US</a></li>

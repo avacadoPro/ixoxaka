@@ -1,20 +1,19 @@
 
-    <!-- page footer -->
     <footer id="footer">
         <div class="grid-row clear">
             <div class="footer">
                 <div id="copyright">Copyright<span> COORDINATOR MARKETING & SERVICES</span> <?php echo date("Y"); ?>-All Rights Reserved
                 </div>
                 <a href="index.html" class="footer-logo">
-					<img src="images/slider/9ef32698-8604-46dd-83fc-fe5241fc4b04.jpg" alt="" style="height: 50px;">
+					<img src="images/CMS-LOGO-GIF.gif" alt="" style="height: 50px;">
 				</a>
-                <!-- <div class="social">
-                                <a href="#"><div class="contact-round"><i class="fa fa-twitter"></i></div></a>
-                                <a href="#"><div class="contact-round"><i class="fa fa-facebook"></i></div></a>
-                                <a href="#"><div class="contact-round"><i class="fa fa-skype"></i></div></a>
-                                <a href="#"><div class="contact-round"><i class="fa fa-rss"></i></div></a>
-                                <a href="#"><div class="contact-round"><i class="fa fa-linkedin"></i></div></a>
-                            </div> -->
+                <div class="social">
+                    <a href="#"><div class="contact-round"><i class="fa fa-twitter"></i></div></a>
+                    <a href="#"><div class="contact-round"><i class="fa fa-facebook"></i></div></a>
+                    <a href="#"><div class="contact-round"><i class="fa fa-skype"></i></div></a>
+                    <a href="#"><div class="contact-round"><i class="fa fa-rss"></i></div></a>
+                    <a href="#"><div class="contact-round"><i class="fa fa-linkedin"></i></div></a>
+                </div>
             </div>
         </div>
     </footer>
@@ -44,6 +43,7 @@
     <script src="js/jquery.fancybox.pack.js"></script>
     <script src="js/jquery.fancybox-media.js"></script>
     <script src="js/retina.min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <!--/ scripts -->
 </body>
 

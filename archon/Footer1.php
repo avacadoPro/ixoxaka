@@ -15,24 +15,23 @@
 <div class="clearfix"></div>
 <div id="notif-group" class="tabbed_notifications"></div>
 </div>
-<script src="js/bootstrap.min.js"></script>
 <!-- jQuery -->
-<script src="js/jquery/dist/jquery.min.js"></script>
+<script src="../../js/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap -->
-<script src="js/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../js/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- FastClick -->
-<script src="js/fastclick/lib/fastclick.js"></script>
+<script src="../js/fastclick/lib/fastclick.js"></script>
 <!-- NProgress -->
-<script src="js/nprogress/nprogress.js"></script>
+<!-- <script src="../js/nprogress/nprogress.js"></script> -->
 <!-- Custom Theme Scripts -->
-<script src="js/custom.min.js"></script>
+<script src="../js/custom.min.js"></script>
 <!-- bootstrap progress js -->
-<script src="js/progressbar/bootstrap-progressbar.min.js"></script>
-<script src="js/nicescroll/jquery.nicescroll.min.js"></script>
+<script src="../js/progressbar/bootstrap-progressbar.min.js"></script>
+<script src="../js/nicescroll/jquery.nicescroll.min.js"></script>
 <!-- icheck -->
-<script src="js/icheck/icheck.min.js"></script>
+<script src="../js/icheck/icheck.min.js"></script>
 <!-- pace -->
-<script src="js/pace/pace.min.js"></script>
+<script src="../js/pace/pace.min.js"></script>
 
 
  <!-- jQuery -->

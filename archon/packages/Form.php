@@ -112,9 +112,9 @@ if(isset($_POST['submit']))
                                     <label class="control-label col-md-4">Type</label>
                                     <div class="col-md-8">
 										<select name="type" id="type" class="form-control" required value="<?php echo $objBAL->type;?>">
-										<option value="Monthly">Monthly</option>
-										<option value="Yearly">Yearly</option>
-									</select>
+                                            <option value="Monthly">Monthly</option>
+                                            <option value="Yearly">Yearly</option>
+									    </select>
                                         
                                     </div>
                                 </div>

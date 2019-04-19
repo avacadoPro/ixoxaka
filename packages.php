@@ -42,9 +42,16 @@ $packages=$packages_db->LoadAll();
 }
 
 .price .header {
-  background-color: #111;
+  /* background-color: #111; */
   color: white;
   font-size: 25px;
+}
+.price .greenBackGround {
+    background-color:#4CAF50
+}
+
+.price .blackBackGround {
+    background-color:#111111
 }
 
 .price li {
@@ -75,34 +82,15 @@ $packages=$packages_db->LoadAll();
 }
 </style>
 
-<h2 style="text-align:center">Packeges Pricing</h2>
+<h2 style="text-align:center">OUR PACKAGES</h2>
 <!-- <p style="text-align:center">Resize the browser window to see the effect.</p> -->
 
-<div class="container" style="maring-bottom:50px">
-<?php foreach ($packages as $key => $value) {
-  $personalLockerTemp=($value['personalLocker']==true)?"<i class='fas fa-check-circle' style='color:#4CAF50'></i>":"<i class='far fa-check-circle'></i>";
-  $freeAccessTemp=($value['freeAccess']==true)?"<i class='fas fa-check-circle' style='color:#4CAF50'></i>":"<i class='far fa-check-circle'></i>";
-  $personalTrainerTemp=($value['personalTrainer']==true)?"<i class='fas fa-check-circle' style='color:#4CAF50'></i>":"<i class='far fa-check-circle'></i>";
-  $NutritionPlanTemp=($value['NutritionPlan']==true)?"<i class='fas fa-check-circle' style='color:#4CAF50'></i>":"<i class='far fa-check-circle'></i>";
-  $FreeMassageTemp=($value['FreeMassage']==true)?"<i class='fas fa-check-circle' style='color:#4CAF50'></i>":"<i class='far fa-check-circle'></i>";
-  ?> 
-  <div class="columns">
-    <ul class="price">
-      <li class="header"  <?php echo ($key % 2 == 0) ? "" : "style='background-color:#4CAF50'" ?>><?php echo $value['title']; ?></li>
-      <li class="grey"> <?php echo $value['price']; ?> / <?php echo $value['type']; ?></li>
-      <li> <?php echo $personalLockerTemp; ?> Personal Locker</li>
-      <li> <?php echo $freeAccessTemp; ?> Free Access</li>
-      <li> <?php echo $personalTrainerTemp; ?> Personal Trainer</li>
-      <li> <?php echo $NutritionPlanTemp; ?> Nutrition Plan</li>
-      <li> <?php echo $FreeMassageTemp; ?> Free Locker</li>
-      <li class="grey"><a href="#" class="button">Getting Started</a></li>
-    </ul>
-  </div>
-<?php }?>
+<div class="container" style="maring-bottom:50px">  
+  <?php include 'packages/index.html'; ?>
 </div>
 
 
 
 
 
-<?php include 'footer.php'; ?>
+<?php //include 'footer.php'; ?>

@@ -17,6 +17,7 @@ if (isset($_GET['id'])) {
         $objBAL->id = $row['id'];
         $objBAL->title = $row['title'];
         $objBAL->content = $row['content'];
+        $objBAL->shortcontent = $row['shortcontent'];
         $objBAL->image = $row['image'];
         $objBAL->tags = $row['tags'];
         $objBAL->arthor = $row['arthor'];
@@ -46,6 +47,7 @@ if (isset($_POST['submit'])) {
     $objBAL->id = $_POST['id'];
     $objBAL->title = $_POST['title'];
     $objBAL->content = $_POST['content'];
+    $objBAL->shortcontent = $_POST['shortcontent'];
     $objBAL->tags = $_POST['tags'];
     $objBAL->arthor = $_POST['arthor'];
     $objBAL->dateofcreation = $_POST['dateofcreation'];
@@ -102,7 +104,7 @@ if (isset($_POST['submit'])) {
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                        <label class = "control-label col-md-2">Tags</label>
+                                        <label class = "control-label col-md-2">Tags <br>(Comma Seprated)</label>
                                         <div class="col-md-10">
                                         <input type="text" name="tags" value="<?php echo $objBAL->tags; ?>"class = "form-control" required/>
                                         </div>
@@ -114,6 +116,18 @@ if (isset($_POST['submit'])) {
                                         </div>
                                     </div>
                                
+                                <div class="form-group">
+                                    <label class = "control-label col-md-2">Short Content</label>
+                                    <div class="col-md-10">
+                                    <textarea id="example" name="shortcontent"  style="width:300px" class="ckeditor" ><?php
+                                        if (isset($objBAL->shortcontent)) {
+                                            echo htmlentities($objBAL->shortcontent, ENT_QUOTES, 'UTF-8');
+                                            // echo $objBAL->content;
+                                        }
+                                    ?></textarea>
+                                        <!-- <textarea name="content" id="contentt"  cols="30" rows="10" required class = "form-control"><?php echo $objBAL->content; ?></textarea> -->
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <label class = "control-label col-md-2">Content</label>
                                     <div class="col-md-10">

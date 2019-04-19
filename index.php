@@ -1,7 +1,6 @@
 <?php
+ini_set('display_errors', 1); 
 
-require 'archon/lib/db.php';
-$db = new Database();
 
 require 'archon/services/classes/servicesDAL.php';
 $services_db=new servicesDAL(include('dbConfig.php'));
@@ -17,6 +16,11 @@ require 'archon/team/classes/teamDAL.php';
 $team_db=new teamDAL(include('dbConfig.php'));
 $team=$team_db->LoadAll();
 
+
+
+require 'archon/portfolioCategories/classes/portfolioCategoriesDAL.php';
+$portfolioCategories_db=new portfolioCategoriesDAL(include('dbConfig.php'));
+$portfolioCategories=$portfolioCategories_db->LoadAll();
 
 require 'archon/portfolio/classes/portfolio1DAL.php';
 $portfolio_db=new portfolio1DAL(include('dbConfig.php'));
@@ -222,43 +226,51 @@ include 'header.php'
     <!-- team -->    
 
 
-    <!-- portfolio -->
-    <section id="portfolio" class="portfolio padding-section">
-        <div class="grid-row">
-            <div class="portfolio-filter clear">
-                <div class="title">
-                    <a href="#" class="all-iso-item active" data-filter=".item">ALL</a>
-                    <span class="main-title">SOCIAL MEDIA</span>
-                    <span class="slash-icon">/</span>
-                    <a href="#" data-filter=".photo">BRANDING</a>
-                    <a href="#" data-filter=".design">WEB</a>
-                    <a href="#" data-filter=".video">APP</a>
-                    <a href="#" data-filter=".web">VIDEO</a>
-                    <a href="#" data-filter=".music">PHOTOGRAPHY</a>
+ 
 
-                </div>
-
-            </div>
+ <section id="portfolio" class="portfolio">
+    <div class="grid-row">
+      <div class="portfolio-filter clear">
+        <div class="title">
+          <a href="#" class="active" data-filter=".item" style="float:right">ALL</a>
+          <span class="main-title">PORTFOLIO</span>
+          <span class="slash-icon">/</span>
+          <?php foreach ($portfolioCategories as $key => $value) {
+                    echo '<a href="#" data-filter=".'.$value['title'].'">'.strtoupper($value['title']).'</a>';
+                } ?>
+         
         </div>
-        <div class="isotope">
-            <?php foreach ($portfolios as $key) {?>
-            <div class="item design photo video web">
-                <div class="portfolio-hover">
-                    <div class="portfolio-info">
-                        <a href="">
-                            <div class="portfolio-title"><?php echo $key['title']; ?></div>
-                        </a>
-                        <div class="portfolio-divider"></div>
-                        <div class="portfolio-description"><?php echo $key['type']; ?></div>
-                    </div>
+      </div>
+    </div>
+    <div class="grid-row">
+      <div class="grid-col-row">
+        <div class="isotope portfolio-three-columns">
+            <?php foreach ($portfolios as $index=>$key) {  if ($key['visibleonhome']==1&&$index<10) {
+                ?>
+        <div class="item <?php echo $key['categories']; ?>" style="width:25em;height:300px;padding:10px;background-color:white">
+            <div class="portfolio-hover">
+                <div class="portfolio-info">
+                    <a href="portfolio.php?id=<?php echo $key['id']; ?>">
+                        <div class="portfolio-title"><?php echo $key['title']; ?></div>
+                    </a>
+                    <!-- <div class="portfolio-divider"></div>
+                    <div class="portfolio-description"><?php echo $key['type']; ?></div> -->
                 </div>
-                <img src="archon/<?php echo $key['image']; ?>" alt>
             </div>
-
-            <?php
-            } ?>
+            <div style="background-image:url('archon/<?php echo $key['image']; ?>');    height: 300px;width: auto;background-size: cover;background-position: center;background-repeat: no-repeat;"></div>
         </div>
-    </section>
+
+        <?php
+            }} ?>
+       
+         
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
     <hr>
     <!-- portfolio -->
 
@@ -321,7 +333,7 @@ include 'header.php'
                             <h2> <?php echo $value['title'] ?></h2>
                         </div>
                         <div class="content">
-                            <p> <?php echo $value['content'] ?></p>
+                            <p> <?php echo $value['shortcontent'] ?></p>
                         </div>
                         <div class="post-info clear">
                             <span><i class="fa fa-calendar"></i><?php echo " Posted ".$value['dateofcreation']." by ".$value['arthor']; ?></span>
@@ -371,12 +383,12 @@ include 'header.php'
                                 <?php foreach ($clients as $key) {  ?>
 
                                 <div class="gallery-item picture text-center" style="height: 150px; width: auto">
-                                    <div class="hover-effect"></div>
+                                    <!-- <div class="hover-effect"></div>
                                     <div class="link-cont">
 
                                         <a href="archon/<?php echo $key['image']; ?>" class="fancy fa fa-search"></a>
 
-                                    </div>
+                                    </div> -->
                                     <img src="archon/<?php echo $key['image']; ?>"
                                         style="height: 150px; width: auto;    margin-left: 30%;" alt>
                                 </div>
@@ -468,7 +480,7 @@ include 'header.php'
 
         <div class="mapouter">
             <div class="gmap_canvas"><iframe width="100%" height="500" id="gmap_canvas"
-                    src="https://maps.google.com/maps?q=Global%20Business%20center%2C%20dubai&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    src="https://maps.google.com/maps?q=Global%20Business%20center%2C%20Qatar&t=&z=13&ie=UTF8&iwloc=&output=embed"
                     frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a
                     href="https://www.crocothemes.net">crocothemes</a></div>
             <style>

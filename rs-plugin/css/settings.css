@@ -519,6 +519,7 @@ img.tp-slider-alternative-image	{
   -ms-transform: rotate(3deg);
   transform: rotate(3deg);
   right: 10px;
+  /* right: -11em; */
   left: auto;
 }
 

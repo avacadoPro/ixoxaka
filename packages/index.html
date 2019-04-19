@@ -1,0 +1,28 @@
+<style>
+.sub-menu {
+    padding: 0;
+    max-height: 340px; /* 1.5 x 3 */
+    overflow-y: auto;
+}
+</style>
+<div ng-app="CMS_APP" ng-controller="packagesFrontEndController">
+    <div ng-repeat="package in packages">
+        <div class="columns">
+            <ul class="price">
+                <li class="header {{package.headerClass}}" >
+                    {{package.title}}</li>
+                <li class="grey"> ${{package.price}} /
+                    {{package.duration}}{{package.type}}
+                </li>
+                <ul class="sub-menu">
+                    <li ng-repeat="service in package.services"> 
+                        <i class='fas fa-check-circle' style='color:#4CAF50' ng-if="service.isCheck"></i>
+                        <i class='far fa-check-circle' ng-if="!service.isCheck"></i>
+                     {{service.title}}</li>
+                </ul>
+                 
+                <li class="grey"><a href="#" class="button">Getting Started</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

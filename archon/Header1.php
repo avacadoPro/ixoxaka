@@ -1,39 +1,17 @@
 <?php
- 
+  session_name('hosthubSession');
   session_start();
-  // session_start();
-  require ("lib/db.php");
-  $db = new Database();
 
 
-  $link = $_SERVER['PHP_SELF'];
-  $link_array = explode('/',$link);
-  $page = end($link_array);
-
-  require ("enc.php");
-
-  // echo "<h1>".$_COOKIE["isLogin"]."</h1>";
-
-if(isset($_SESSION['type'])){
-
-     // require ("lib/db.php");
-     // $db = new Database();
-
-    $user_id    = $_SESSION['id'];     
+if (isset($_SESSION['id'])) {
+    $user_id    = $_SESSION['id'];
     $username   = $_SESSION['name'];
     $email      = $_SESSION['email'];
-    $contact    = $_SESSION['contact'];
-    $password   = $_SESSION['password'];   
+    $password   = $_SESSION['password'];
     $isLogin    = $_SESSION['isLogin'];
-    $type       = $_SESSION['type'];
-
-
-
-  }
-
-  else{
-   // header("Location: login");
-
+    $role    = $_SESSION['role'];
+} else {
+      echo "<script> location.href='../login.php'; </script>";
   }
 
 
@@ -43,6 +21,7 @@ if(isset($_SESSION['type'])){
 
 
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -81,7 +60,15 @@ if(isset($_SESSION['type'])){
   <script src="../js/editor/bootstrap-wysiwyg.js"></script>
   <script src="../js/editor/external/jquery.hotkeys.js"></script>
   <script src="../js/editor/external/google-code-prettify/prettify.js"></script>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
+<script src="../../js/angular/tinymce.js"></script>
+  <script src="../../js/angular/CMS_APP.js"></script>
+  <script src="../../js/angular/scopeService.js"></script>
+  <script src="../../js/angular/imageUploadService.js"></script>
+  <script src="../portfolio1/portfolioController.js"></script>
+  <script src="../packages1/packagesController.js"></script>
+  
   <!-- Custom styling plus plugins -->
   <link href="../css/custom.css" rel="stylesheet">
   <link href="../css/icheck/flat/green.css" rel="stylesheet">
@@ -101,7 +88,7 @@ if(isset($_SESSION['type'])){
 
   </head>
 
-  <body class="nav-md">
+  <body class="nav-md" >
     <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col menu_fixed">
@@ -133,10 +120,11 @@ if(isset($_SESSION['type'])){
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <h3>Admin Panel</h3>
-                <ul class="nav side-menu">
+                <ul class="nav side-menu" style="overflow-y: scroll;height: 560px;max-width: 230px;">
 
                     <li><a href="../banner-video"><i class="fa fa-edit"></i> Banner</a></li>
-                    <li><a href="../portfolio"><i class="fa fa-globe"></i> Portfolio </a></li>
+                    <li><a href="../portfolioCategories"><i class="fa fa-sitemap"></i> Portfolio Categories</a></li>
+                    <li><a href="../portfolio1"><i class="fa fa-globe"></i> Portfolio </a></li>
                     <li><a href="../clients"><i class="fa fa-server"></i> Our Clients </a></li>
                     <li><a href="../team"><i class="fa fa-users"></i> Team </a></li>
                     <li><a href="../services"><i class="fa fa-edit"></i> Services </a></li>
@@ -147,7 +135,14 @@ if(isset($_SESSION['type'])){
                     <li><a href="../contactus_user"><i class="fa fa-edit"></i> Contact Us User</a></li>
                     <li><a href="../funfacts"><i class="fa fa-edit"></i> Fun Facts </a></li>
                     <li><a href="../subscribers"><i class="fa fa-edit"></i>Subscribers </a></li>
-                    <li><a href="../packages"><i class="fa fa-edit"></i>Packages </a></li>
+                    <li><a href="../packageServices"><i class="fa fa-edit"></i>Package Services </a></li>
+                    <li><a href="../packages1"><i class="fa fa-edit"></i>Packages </a></li>
+                    <?php 
+                      if($role=="superAdmin"){
+                        echo '<li><a href="../users"><i class="fa fa-user"></i>Users </a></li>';
+                      }
+                    ?>
+                    
                      <!-- <li><a href="contact"><i class="fa fa-envelope"></i> Contact Messages </a></li> -->                  
                 </ul>
                 </div>
@@ -157,7 +152,7 @@ if(isset($_SESSION['type'])){
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
-              <a href="logout.php" data-toggle="tooltip" data-placement="top" style="width: 100%" title="Logout">
+              <a href="../logout.php" data-toggle="tooltip" data-placement="top" style="width: 100%" title="Logout">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>
@@ -184,7 +179,7 @@ if(isset($_SESSION['type'])){
 
                     <!-- <li><a href="settings.php"> Profile</a></li> -->
 
-                    <li><a href="../logout.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                    <li><a href="../archon/logout.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
 
                   </ul>
                 </li>

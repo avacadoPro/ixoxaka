@@ -444,7 +444,7 @@ img {
 	right: 0;
 	padding: 0 15px;
 	line-height: 40px;
-	background-color: #ff4a81;
+	background-color: #85bb59;
 	color: black;
 }
 .sticky .nav .switcher.color i{
@@ -814,7 +814,7 @@ dd{
 .subscribe {
 	padding: 44px 0 44px 0;
 	width: 100%;
-	position: absolute;
+	/* position: absolute; */
 	z-index: 3;
 	background-color: rgba(0, 231, 180, 0.8);
 	bottom: 0px;
@@ -979,11 +979,11 @@ dd{
 /**/
 .border-img {
 	border: 1px solid #e5e5e5;
-	width: 100%;
+	width: 80%;
 	-webkit-border-radius: 999px;
 	-moz-border-radius: 999px;
 	border-radius: 999px;
-	padding-bottom: 100%;
+	padding-bottom: 80%;
 	position: relative;
 	background-color: white;
 }
@@ -1663,6 +1663,7 @@ audio::-webkit-media-controls-enclosure, video::-webkit-media-controls-enclosure
 	-moz-transform: rotate(-45deg);
 	-webkit-transform: rotate(-45deg);
 	left: auto;
+	/* right:-11em; */
 	right: 10px;
 }
 .cws-Fullscreen-slider{

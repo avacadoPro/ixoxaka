@@ -71,7 +71,7 @@ $blogs=$blogs_db->LoadAll();
                             <h2> <?php echo $value['title'] ?></h2>
                         </div>
                         <div class="content">
-                            <p> <?php echo $value['content'] ?></p>
+                            <p> <?php echo $value['shortcontent'] ?></p>
                         </div>
                         <div class="post-info clear">
                             <span><i class="fa fa-calendar"></i><?php echo " Posted ".$value['dateofcreation']." by ".$value['arthor']; ?></span>

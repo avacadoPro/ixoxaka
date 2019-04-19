@@ -87,7 +87,7 @@ if (isset($_POST['btn_search'])) {
 								{
 									echo '<tr >';
 									echo '<td class="hidden">'.$row['id']."</td>";									
-									echo '<td><img src="../'.$row['image'].'" style="height:50px;width:auto"/></td>';
+									echo '<td><img src="../'.$row['image'].'" style="height:50px;width:auto" alt="'.$row['title'].'"/></td>';
 									echo '<td>'.$row['title']."</td>";
 									echo '<td>'.$row['type']."</td>";
 									echo '<td> <a href="Form.php?id='.$row['id'].'">Edit</a> | <a href="Form.php?did='.$row['id'].'">Delete</a></td>';

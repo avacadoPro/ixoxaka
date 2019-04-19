@@ -24,12 +24,24 @@ class portfolio1DAL
         $query .= " type ";
         $query .= ", ";
         $query .= " image ";
+        $query .= ", ";
+        $query .= " categories ";
+        $query .= ", ";
+        $query .= " categoriesComma ";
+        $query .= ", ";
+        $query .= " visibleonhome ";
         $query .= ") VALUES (";
         $query .= "'{$obj->title}'";
         $query .= ", ";
         $query .= "'{$obj->type}'";
         $query .= ", ";
         $query .= "'{$obj->image}'";
+        $query .= ", ";
+        $query .= "'{$obj->categories}'";
+        $query .= ", ";
+        $query .= "'{$obj->categoriesComma}'";
+        $query .= ", ";
+        $query .= "'{$obj->visibleonhome}'";
         $query .= ");";
         $db->query($query);
     }
@@ -37,11 +49,17 @@ class portfolio1DAL
     {
         $db = $GLOBALS['pdo'];
         $query = "UPDATE portfolio SET ";
-        $query .= "title='{$obj->title}'";
+        $query .= "title='{$obj->title}' ";
         $query .= ", ";
-        $query .= "type='{$obj->type}'";
+        $query .= "type='{$obj->type}'" ;
         $query .= ", ";
-        $query .= "image='{$obj->image}'";
+        $query .= "image='{$obj->image}' ";
+        $query .= ", ";
+        $query .= "categories='{$obj->categories}' ";
+        $query .= ", ";
+        $query .= "categoriesComma='{$obj->categoriesComma}' ";
+        $query .= ", ";
+        $query .= "visibleonhome='{$obj->visibleonhome}' ";
         $query .= "WHERE id='{$obj->id}' ;";
         $db->query($query);
     }
@@ -84,4 +102,13 @@ class portfolio1DAL
             return $db->query($query);
         }
     }
+    function GetMaxID()
+    {
+        $db = $GLOBALS['pdo'];
+        $query = "SELECT * FROM portfolio ORDER BY id DESC LIMIT 0, 1";
+        if ($db != null) {
+            return $db->query($query);
+        }
+    }
+
 }

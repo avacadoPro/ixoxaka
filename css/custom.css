@@ -4,8 +4,8 @@
     float: left;
     position: relative;
     overflow: hidden;
-    height: 800px;
-    margin-bottom: 10%;
+    /* height: 800px;
+    margin-bottom: 10%; */
 }
 .video-part video
 {

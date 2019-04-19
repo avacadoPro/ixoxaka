@@ -6,10 +6,13 @@ class Database
     public $host;
     public $username;
     public $password;
+    public $connectionString;
 
     public function __construct()
     {
 
+        $this->$connectionString = include './../dbConfig.php';
+        print_r($this->$connectionString);
         $this->dbname = "coordina_coordinator";$this->host = "localhost:3306";$this->username = 'coordina_codeit';$this->password = "codeit1234!";
         $this->dbname = "coordina_coordinator";
         $this->host = "localhost";
@@ -21,11 +24,7 @@ class Database
     public function checkConnection()
     {
         try {
-            $conn = new PDO(
-                "mysql:host=$this->host;dbname=$this->dbname",
-                $this->username,
-                $this->password
-            );
+            $conn = new PDO($this->$connectionString);
 
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -41,7 +40,8 @@ class Database
     public function select($query)
     {
         try {
-            $conn = new PDO("mysql:host=$this->host;dbname=$this->dbname", $this->username, $this->password);
+           
+            $conn = new PDO($this->$connectionString);
 
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 

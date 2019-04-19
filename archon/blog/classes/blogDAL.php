@@ -25,6 +25,8 @@ class blogDAL
             $query.=", "; 
             $query.=" content "; 
             $query.=", "; 
+            $query.=" shortcontent "; 
+            $query.=", "; 
             $query.=" image "; 
             $query.=", "; 
             $query.=" tags ";             
@@ -36,6 +38,8 @@ class blogDAL
             $query.="'{$obj->title}'"; 
             $query.=", "; 
             $query.="'{$obj->content}'"; 
+            $query.=", "; 
+            $query.="'{$obj->shortcontent}'"; 
             $query.=", "; 
             $query.="'{$obj->image}'"; 
             $query.=", "; 
@@ -55,6 +59,8 @@ class blogDAL
             $query.="title='{$obj->title}'"; 
             $query.=", "; 
             $query.="content='{$obj->content}'"; 
+            $query.=", "; 
+            $query.="shortcontent='{$obj->shortcontent}'"; 
             $query.=", "; 
             $query.="image='{$obj->image}'"; 
             $query.=", "; 
@@ -96,6 +102,8 @@ class blogDAL
             $query.= "(title IS NULL OR title LIKE '%{$obj->title}%') ";
             $query.= " OR ";
             $query.= "(content IS NULL OR content LIKE '%{$obj->content}%') ";
+            $query.= " OR ";
+            $query.= "(shortcontent IS NULL OR content LIKE '%{$obj->content}%') ";
             $query.= " OR ";
             $query.= "(image IS NULL OR image LIKE '%{$obj->image}%') ";
             $query.= " OR ";

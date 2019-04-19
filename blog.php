@@ -1,15 +1,15 @@
 <?php
 include 'header.php';
 if (isset($_GET['id'])) {
-    require 'archon/lib/db.php';
-    $db = new Database();
     $id=$_GET['id'];
 	require 'archon/blog/classes/blogDAL.php';
 	$blog_db=new blogDAL(include('dbConfig.php'));
 	$blogs=$blog_db->Find($id);
-	$blog=null;
+    $blog=null;
+    $tags=null;
 	foreach ($blogs as $key => $value) {
-		$blog=$value;
+        $blog=$value;
+        $tags=explode(",",$value["tags"]);
 	}
 } else {
     echo "<script type='text/javascript'>location.href = 'index.php';</script>";
@@ -52,6 +52,46 @@ if (isset($_GET['id'])) {
                 </div>
             </div>
         </div>
+        <!-- sidebar -->
+					<aside class="grid-col grid-col-3 sidebar">
+					
+						
+						<div class="widget widget-calendar">
+							<div class="widget-title">Calendar</div>
+							<div id="calendar"></div>
+						</div>
+						<!-- widget calendar -->
+						<hr class="divider-green">
+						
+						<!-- widget tag cloud -->
+						<div id="tag_cloud-2" class="widget widget_tag_cloud">
+							<div class="widget-title">Tags</div>
+							<div class="tagcloud">
+								<ul>
+                                    <?php foreach ($tags as $key => $value) {
+                                      echo '<li><a href="#">'.$value.'</a></li>';
+                                    } ?>
+								</ul>
+							</div>
+						</div>
+						<!-- widget tag cloud -->
+						<hr class="divider-green">
+						<!-- widget follow subscribe -->
+						<div id="text-3" class="widget widget_text">
+							<div class="widget-title">Follow & subscribe</div>
+							<div class="textwidget">
+								<div class="follow-icon">
+									<a href="#"><div class="contact-round blue-follow-icon"><i class="fa fa-twitter"></i></div></a>
+									<a href="#"><div class="contact-round hot-follow-icon"><i class="fa fa-rss"></i></div></a>
+									<a href="#"><div class="contact-round blue-follow-icon"><i class="fa fa-skype"></i></div></a>
+									<a href="#"><div class="contact-round red-follow-icon"><i class="fa fa-youtube"></i></div></a>
+									<a href="#"><div class="contact-round blue-follow-icon"><i class="fa fa-facebook"></i></div></a>
+								</div>
+							</div>
+						</div>
+						<!-- widget follow subscribe -->
+					</aside>
+					<!-- sidebar -->
 	</div>
 </div>
 <?php include 'footer.php'; ?>

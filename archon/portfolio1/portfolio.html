@@ -1,0 +1,203 @@
+<div class="right_col" role="main" ng-controller="PortFolioController" ng-app="CMS_APP">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+            </div>
+
+            <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="row" style="min-height: 654px;">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <h4>Portfolios</h4>
+                    <hr>
+                    <div class="x_content">
+                        
+                        <!-- Modal -->
+                        <div id="myModal" class="modal fade" role="dialog">
+                            <div class="modal-dialog modal-dialog-centered" role="document"
+                                style="min-width: 75% !important;">
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <div class="col-sm-10">
+                                            <h3>Portfolio</h3>
+                                            <p>Manage Portfolio</p>
+                                        </div>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                                            ng-click="clear()">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body" style="height:807px">
+                                        <form name="f" class="row col-sm-12">
+                                            <div class="row">
+                                                <div class="col-sm-6 text-center">
+                                                    <image
+                                                        src="{{'../'+portfolio.image}}"
+                                                        style="height: 450px;" id="image">
+                                                        <input type="file" ng-model="portfolio.image"
+                                                            class="btn btn-default btn-block btn-sm"
+                                                            style="margin-left: 25%;width: 50%;"
+                                                            ng-upload-change="Selected_image($event)"
+                                                            accept="image/*" />
+                                                        <div class="alert alert-danger"
+                                                            ng-if="portfolio.image&&portfolio.errors.imageError">
+                                                            {{portfolio.image&&portfolio.errors.imageError}}
+                                                        </div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>
+                                                            Title
+                                                        </label>
+                                                        <input type="text" class="form-control" name="title"
+                                                            ng-model="portfolio.title" required
+                                                            ng-change="success=false" />
+                                                        <div class="alert alert-danger"
+                                                            ng-if="f.title.$invalid&&f.title.$dirty&&!success">
+                                                            <span ng-if="f.title.$error.required">
+                                                                Title is Required
+                                                            </span>
+                                                            <span ng-if="f.title.$error.pattern">
+                                                                Branch Name should be alphanumeric ranging from 3 to 40
+                                                                words
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <br>
+                                                    <div class="form-group">
+                                                        <label><input type="checkbox"
+                                                            ng-model="portfolio.visibleonhome" /> -Visible on home</label>
+                                                    </div>
+                                                    <br>
+                                                    <div class="form-group">
+                                                        <label>
+                                                            Categories
+                                                        </label>
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th></th>
+                                                                    <th>Category</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr ng-repeat="category in categories"
+                                                                    ng-click="categoryClick(category)"
+                                                                    style="cursor:pointer">
+                                                                    <td> <input type="checkbox"
+                                                                            ng-model="category.isCheck" /></td>
+                                                                    <td>{{category.title}}</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                    </div>
+                                                    <div class="form-group">
+                                                            <label>
+                                                                Description
+                                                            </label>
+                                                            <!-- <textarea id="example" name="type"  style="width:300px" class="ckeditor" contenteditable ng-model="portfolio.type" ng-bind-html="portfolio.type"> -->
+                                                                    <textarea ng-model="portfolio.type" class="form-control" style="width: 100%;height: 200px;"></textarea>
+                                                            <!-- </textarea> -->
+                                                            
+                                                            <div class="alert alert-danger"
+                                                                ng-if="f.type.$invalid&&f.title.$dirty&&!success">
+                                                                <span ng-if="f.type.$error.required">
+                                                                    Title is Required
+                                                                </span>
+                                                                <span ng-if="f.type.$error.pattern">
+                                                                    Branch Name should be alphanumeric ranging from 3 to 40
+                                                                    words
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-sm-2"></div>
+                                                <div class="form-group col-sm-4">
+                                                    <button class="btn btn-primary btn-block" ng-disabled="f.$invalid||formBusy"
+                                                        ng-click="save()">
+                                                        {{(!formBusy)?"Save":"Please wait.."}}
+                                                    </button>
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                    <button class="btn btn-warning btn-block" type="button"
+                                                        ng-click="clear()">
+                                                        Clear
+                                                    </button>
+                                                </div>
+                                                <div class="col-sm-2"></div>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div> -->
+                            </div>
+
+                        </div>
+                            <div class="col-sm-6">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" ng-click="clear()">
+                                        Add New Portfolio
+                                    </button>
+							</div>
+							<div class="col-sm-6">
+								<div class="col-sm-10" >
+									<input type="text" name="txt_Search" placeholder="Search" class = "form-control" ng-model="searchTxt" my-enter="search()"/>	
+								</div>
+								<div class="col-sm-2"  >
+									<input type="submit" name="btn_search" value="Search" class = "btn btn-primary" ng-click="search()" style="margin-left:-70px"/>
+								</div>		
+							</div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>
+
+                                    </th>
+                                    <th>
+                                        Title
+                                    </th>
+                                    <!-- <th>
+                                        Type
+                                    </th> -->
+                                    <th>
+                                        Categories
+                                    </th>
+                                    <th>Visible on home</th>
+                                    <th>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="portfolio in filteredPortfolios">
+                                    <td><img src="../{{portfolio.image}}" style="height:50px;width:auto" alt="{{portfolio.title}}"/></td>
+                                    <td>{{portfolio.title}}</td>
+                                    <!-- <td>{{portfolio.type}}</td> -->
+                                    <td>{{portfolio.categoriesComma}}</td>
+                                    <td>{{(portfolio.visibleonhome==1)?"Yes":"No"}}</td>
+                                    <td> 
+                                        <button class="btn btn-warning" ng-click="Load(portfolio)" data-toggle="modal" data-target="#myModal">Edit</button>
+                                        <button class="btn btn-danger" ng-click="delete(portfolio.id)">Delete</button></td>                                
+                                    </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -564,9 +564,9 @@ function mobileMainMenu(){
       $('.sticky .nav .switcher').css('display', 'block');
       $('.mobile .nav').css({
         'position': 'absolute',
-        'top':'10px',
+        'top':'0px',
         'z-index':'100',
-        'right':'10px'
+        'right':'-12em'
       });
       $('nav>ul>li>ul').parent().addClass('has_child');
       $('.nav>ul').hide();

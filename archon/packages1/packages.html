@@ -1,0 +1,235 @@
+<div class="right_col" role="main" ng-controller="packagesController" ng-app="CMS_APP">
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+            </div>
+
+            <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="row" style="min-height: 654px;">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <h4>Packages</h4>
+                    <hr>
+                    <div class="x_content">
+
+                        <!-- Modal -->
+                        <div id="myModal" class="modal fade" role="dialog">
+                            <div class="modal-dialog modal-dialog-centered" role="document"
+                                style="min-width: 75% !important;">
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <div class="col-sm-10">
+                                            <h3>Package</h3>
+                                            <p>Manage package</p>
+                                        </div>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                                            ng-click="clear()">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body" style="height:400px">
+                                        <form name="f" class="row col-sm-12">
+                                            <div class="row">
+                                                <div class="col-sm-6">
+                                                    <div class="form-group">
+                                                        <label>
+                                                            Title
+                                                        </label>
+                                                        <input type="text" class="form-control" name="title"
+                                                            ng-model="package.title" required
+                                                            ng-change="success=false" />
+                                                        <div class="alert alert-danger"
+                                                            ng-if="f.title.$invalid&&f.title.$dirty&&!success">
+                                                            <span ng-if="f.title.$error.required">
+                                                                Title is Required
+                                                            </span>
+                                                            <span ng-if="f.title.$error.pattern">
+                                                                Branch Name should be alphanumeric ranging from 3 to 40
+                                                                words
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <div class="row">
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label>
+                                                                    Type
+                                                                </label>
+                                                                <select class="form-control" name="type"
+                                                                    ng-model="package.type"
+                                                                    ng-options="obj.id as obj.value for obj in types"
+                                                                    required></select>
+
+                                                                <div class="alert alert-danger"
+                                                                    ng-if="f.type.$invalid&&f.type.$dirty&&!success">
+                                                                    <span ng-if="f.type.$error.required">
+                                                                        Type is Required
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label>
+                                                                    {{(package.type&&pakage.type!="")?package.type:"Duration"}}
+                                                                </label>
+                                                                <input type="text" class="form-control" name="duration"
+                                                                    ng-model="package.duration" required
+                                                                    pattern="\d+(\.\d{1,2})?"
+                                                                    ng-change="success=false" />
+                                                                <div class="alert alert-danger"
+                                                                    ng-if="f.duration.$invalid&&f.duration.$dirty&&!success">
+                                                                    <span ng-if="f.duration.$error.required">
+                                                                        Duration {{package.type}} is Required
+                                                                    </span>
+                                                                    <span ng-if="f.duration.$error.pattern">
+                                                                        Duration {{package.type}} is should be numeric
+                                                                    </span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <br>
+                                                    <div class="form-group">
+                                                        <label>
+                                                            Price
+                                                        </label>
+                                                        <input type="text" class="form-control" name="price"
+                                                            ng-model="package.price" required pattern="\d+(\.\d{1,2})?"
+                                                            ng-change="success=false" />
+                                                        <div class="alert alert-danger"
+                                                            ng-if="f.price.$invalid&&f.price.$dirty&&!success">
+                                                            <span ng-if="f.price.$error.required">
+                                                                Price is Required
+                                                            </span>
+                                                            <span ng-if="f.price.$error.pattern">
+                                                                Price is should be numeric
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6">
+
+                                                    <div class="form-group"
+                                                        style="height: 274px;    overflow-y: scroll;">
+                                                        <label>
+                                                            Services
+                                                        </label>
+                                                        <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th></th>
+                                                                    <th>Service</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr ng-repeat="service in services"
+                                                                    ng-click="serviceClick(service)"
+                                                                    style="cursor:pointer">
+                                                                    <td> <input type="checkbox"
+                                                                            ng-model="service.isCheck" /></td>
+                                                                    <td>{{service.title}}</td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-sm-2"></div>
+                                                <div class="form-group col-sm-4">
+                                                    <button class="btn btn-primary btn-block"
+                                                        ng-disabled="f.$invalid||formBusy" ng-click="save()">
+                                                        {{(!formBusy)?"Save":"Please wait.."}}
+                                                    </button>
+                                                </div>
+                                                <div class="form-group col-sm-4">
+                                                    <button class="btn btn-warning btn-block" type="button"
+                                                        ng-click="clear()">
+                                                        Clear
+                                                    </button>
+                                                </div>
+                                                <div class="col-sm-2"></div>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div> -->
+                            </div>
+
+                        </div>
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"
+                                ng-click="clear()">
+                                Add New Package
+                            </button>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="col-sm-10">
+                                <input type="text" name="txt_Search" placeholder="Search" class="form-control"
+                                    ng-model="searchTxt" my-enter="search()" />
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="submit" name="btn_search" value="Search" class="btn btn-primary"
+                                    ng-click="search()" style="margin-left:-70px" />
+                            </div>
+                        </div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Title
+                                    </th>
+                                    <th>
+                                        Type
+                                    </th>
+                                    <th>
+                                        Duration
+                                    </th>
+                                    <th>
+                                        Prices
+                                    </th>
+                                    <th>
+                                        Services
+                                    </th>
+                                    <th>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="package in filteredpackages">
+                                    
+                                    <td>{{package.title}}</td>
+                                    <td>{{package.type}}</td>
+                                    <td>{{package.duration}}</td>
+                                    <td>{{package.price}}</td>
+                                    <td>{{package.servicesComma}}</td>
+                                    <td>
+                                        <button class="btn btn-warning" ng-click="Load(package)" data-toggle="modal"
+                                            data-target="#myModal">Edit</button>
+                                        <button class="btn btn-danger" ng-click="delete(package.id)">Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
