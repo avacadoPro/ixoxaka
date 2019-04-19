@@ -10,7 +10,7 @@ CMS_APP.controller('packagesFrontEndController', function ($scope, $http, scopeS
     $scope.getallservices = function () {
         return new Promise((resolve,reject)=>{
             if($scope.services.length==0){
-                $http.get(apiURL + "/packageservices").then(function (res) {
+                $http.get(APIURL_packageServices).then(function (res) {
                     scopeService.safeApply($scope, function () {
                         res.data.records.forEach(function (service) {
                             service["isCheck"] = false;
