@@ -4,6 +4,9 @@ CMS_APP.controller('packagesFrontEndController', function ($scope, $http, scopeS
     
     $scope.services = [];
     
+    const APIURL_package = root + "archon/packages/api/index.php";
+    const APIURL_packageServices = root + "archon/packageServices/api/index.php";
+    const APIURL_packageServicesSelected = root + "archon/packageServicesSelected/api/index.php";
     $scope.getallservices = function () {
         return new Promise((resolve,reject)=>{
             if($scope.services.length==0){
@@ -25,7 +28,7 @@ CMS_APP.controller('packagesFrontEndController', function ($scope, $http, scopeS
     }
     $scope.getpackages = function () {
         $scope.getallservices().then(m=>{
-            $http.get(apiURL + "/packages").then(function (res) {
+            $http.get(APIURL_package).then(function (res) {
                 scopeService.safeApply($scope, function () {
                     $scope.packages = res.data.records;
                     $scope.packages.forEach(function (package,key) {
@@ -55,7 +58,7 @@ CMS_APP.controller('packagesFrontEndController', function ($scope, $http, scopeS
 
 
     $scope.Load = function (package) {
-        $http.get(apiURL + "/packageservicesselected?filter=packageId,eq," + package.id).then(function (res) {
+        $http.get(APIURL_packageServicesSelected + "?packageId=" + package.id).then(function (res) {
             res.data.records.forEach(packageservicesselected => {
                 findInservices(package,packageservicesselected);
             });
