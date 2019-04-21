@@ -34,11 +34,14 @@ CMS_APP.controller('packagesController', function ($scope, $http, scopeService, 
                         if (res.data)
                             res.data.forEach(function (packageservicesselected, key) {
                                 $http.get(APIURL_packageServices + "?id=" + packageservicesselected.packegeServiceId).then(cat => {
-                                    services += cat.data.title;
-                                    if (key != res.data.length - 1)
-                                        services += ","
-                                    package['servicesComma'] = services;
-                                    $scope.search();
+                                    if(cat.data.title){
+                                        services += cat.data.title;
+                                        if (key != res.data.length - 1)
+                                            services += ","
+                                        package['servicesComma'] = services;
+                                        $scope.search();
+                                    }
+                                   
                                 })
                             });
                     })
