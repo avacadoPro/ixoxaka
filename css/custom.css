@@ -14,6 +14,16 @@
 
 
 }
+
+@media only screen and (max-width: 600px) {
+    .video-part video
+    {
+        margin-bottom: 15%;
+        width: 100%;
+        height:44em;
+    
+    }
+  }
 .video-part-content
 {
     position: absolute;
