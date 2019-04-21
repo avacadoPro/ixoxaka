@@ -247,7 +247,7 @@ include 'header.php'
         <div class="isotope portfolio-three-columns">
             <?php 
             $portfolioCount=0;
-            foreach ($portfolios as $index=>$key) {  if ($key['visibleonhome']==1&&$portfolioCount<10) {
+            foreach ($portfolios as $index=>$key) {  if ($key['visibleonhome']==1&&$portfolioCount<=6) {
                 ?>
         <div class="item <?php echo $key['categories']; ?>" style="width:25em;height:300px;padding:10px;background-color:white">
             <div class="portfolio-hover">
