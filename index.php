@@ -251,7 +251,7 @@ include 'header.php'
             <div class="portfolio-hover">
                 <div class="portfolio-info">
                     <a href="portfolio.php?id=<?php echo $key['id']; ?>">
-                        <div class="portfolio-title"><?php echo $key['title']; ?></div>
+                        <div class="portfolio-title"><?php echo $key['title']."-".$index; ?></div>
                     </a>
                     <!-- <div class="portfolio-divider"></div>
                     <div class="portfolio-description"><?php echo $key['type']; ?></div> -->
