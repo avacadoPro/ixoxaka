@@ -245,13 +245,15 @@ include 'header.php'
     <div class="grid-row">
       <div class="grid-col-row">
         <div class="isotope portfolio-three-columns">
-            <?php foreach ($portfolios as $index=>$key) {  if ($key['visibleonhome']==1&&$index<10) {
+            <?php 
+            $portfolioCount=0;
+            foreach ($portfolios as $index=>$key) {  if ($key['visibleonhome']==1&&$portfolioCount<10) {
                 ?>
         <div class="item <?php echo $key['categories']; ?>" style="width:25em;height:300px;padding:10px;background-color:white">
             <div class="portfolio-hover">
                 <div class="portfolio-info">
                     <a href="portfolio.php?id=<?php echo $key['id']; ?>">
-                        <div class="portfolio-title"><?php echo $key['title']."-".$index; ?></div>
+                        <div class="portfolio-title"><?php echo $key['title']; ?></div>
                     </a>
                     <!-- <div class="portfolio-divider"></div>
                     <div class="portfolio-description"><?php echo $key['type']; ?></div> -->
@@ -261,7 +263,7 @@ include 'header.php'
         </div>
 
         <?php
-            }} ?>
+            $portfolioCount++;}} ?>
        
          
         </div>
