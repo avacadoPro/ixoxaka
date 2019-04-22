@@ -62,7 +62,7 @@
 
                     <img class="splash" src="img/CMS-LOGO.gif" alt="" style="margin-left: 20%;">
                     <div class="logo">
-                        <a href="index.php"><img src="images/CMS-LOGO-GIF.gif" alt="" style="height:40px;margin-top:10px"></a>
+                        <a href="index.php"><img src="images/CMS-LOGO-GIF.gif" alt="" style="height:60px;margin-top:3px"></a>
                     </div>
                     <nav class="nav">
                         <a href="#" class="switcher">
