@@ -211,7 +211,7 @@ include 'header.php'
                                 <div style="background-image: url('archon/<?php echo $key['image']; ?>');height: 100%;background-position: center;background-repeat: no-repeat;background-size: cover;border-radius: 100%;"></div>
                             </div>
                         </div>
-                        <p style="margin-left: -2.1em;"><?php echo $key['name']; ?></p>
+                        <p style="margin-left: -2.1em;margin-top:3px"><?php echo $key['name']; ?></p>
                     </div>
                 </div>
 
