@@ -5,7 +5,8 @@
                 <div id="copyright">Copyright<span> COORDINATOR MARKETING & SERVICES</span> <?php echo date("Y"); ?>-All Rights Reserved
                 </div>
                 <a href="index.html" class="footer-logo">
-					<img src="images/CMS-LOGO-GIF.gif" alt="" style="height: 50px;">
+                
+					<img src="images/textlogo.png" alt="" style="height: 50px;">
 				</a>
                 <div class="social">
                     <a href="#"><div class="contact-round"><i class="fa fa-twitter"></i></div></a>
