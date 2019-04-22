@@ -120,7 +120,7 @@ if (isset($_SESSION['id'])) {
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <h3>Admin Panel</h3>
-                <ul class="nav side-menu" style="overflow-y: scroll;height: 560px;max-width: 230px;">
+                <ul class="nav side-menu" style="overflow-y: scroll;height: 450px;max-width: 230px;">
 
                     <li><a href="../banner-video"><i class="fa fa-edit"></i> Banner</a></li>
                     <li><a href="../portfolioCategories"><i class="fa fa-sitemap"></i> Portfolio Categories</a></li>

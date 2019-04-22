@@ -124,8 +124,11 @@ CMS_APP.controller('packagesController', function ($scope, $http, scopeService, 
 
     function findInservices(packageservicesselected) {
         let service = $scope.services.find(m => m.id == packageservicesselected.packegeServiceId);
-        service.isCheck = true;
-        service["packageservicesselectedId"] = packageservicesselected.id;
+        if(service){
+            service["isCheck"] = true;
+            service["packageservicesselectedId"] = packageservicesselected.id;
+        }
+        
     }
 
     $scope.save = function () {
