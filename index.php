@@ -207,10 +207,11 @@ include 'header.php'
                                     <div class="inform-item">
 
                                     </div>
-                                </div><img src="archon/<?php echo $key['image']; ?>" alt>
+                                </div>
+                                <div style="background-image: url('archon/<?php echo $key['image']; ?>');height: 100%;background-position: center;background-repeat: no-repeat;background-size: cover;border-radius: 100%;"></div>
                             </div>
                         </div>
-                        <p><?php echo $key['name']; ?></p>
+                        <p style="margin-left: -2.1em;"><?php echo $key['name']; ?></p>
                     </div>
                 </div>
 
