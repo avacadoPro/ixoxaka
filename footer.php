@@ -12,8 +12,11 @@
                     <a href="#"><div class="contact-round"><i class="fa fa-twitter"></i></div></a>
                     <a href="#"><div class="contact-round"><i class="fa fa-facebook"></i></div></a>
                     <a href="#"><div class="contact-round"><i class="fa fa-skype"></i></div></a>
-                    <a href="#"><div class="contact-round"><i class="fa fa-rss"></i></div></a>
+                    <a href="#"><div class="contact-round"><i class="fa fa-youtube"></i></div></a>
                     <a href="#"><div class="contact-round"><i class="fa fa-linkedin"></i></div></a>
+                    <a href="#"><div class="contact-round"><i class="fa fa-linkedin"></i></div></a>
+                    <a href="tel:+97433322106"><div class="contact-round"><i class="fa fa-phone"></i></div></a>
+                    <a href="#"><div class="contact-round"><i class="fa fa-whatsapp"></i></div></a>
                 </div>
             </div>
         </div>

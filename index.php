@@ -115,11 +115,11 @@ include 'header.php'
             </div>
         </div>       
     </section>     
-    <hr/>
+    <hr id="services">
     <!-- about -->
 
     <!-- services -->
-    <section id="services">
+    <section >
         <div class="grid-row">
             <div class="grid-row clear">
                 <div class="title">

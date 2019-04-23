@@ -73,6 +73,7 @@
                         <ul class="clear" style="display: block; left: -12.5em; top: 2.2em; width: 100%;">
                             <li><a href="index.php">HOME</a></li>     
                             <li><a href="index.php#about">ABOUT US</a></li>          
+                            <li><a href="index.php#services">SERVICES</a></li>          
                             <li><a href="index.php#team">TEAM</a></li>
                             <li><a href="portfolios.php">PORTFOLIO</a></li>
                             <li><a href="blogs.php">BLOGS</a></li>
