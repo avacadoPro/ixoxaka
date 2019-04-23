@@ -202,18 +202,6 @@ include 'header.php'
                 <p class="centerText"><?php echo $key['name']; ?></p>       
             </div>
         <?php  } ?>
-        <?php foreach ($team_db->LoadAll() as $key) {  ?>
-            <div class="cardd">
-                <div style="background-image: url('archon/<?php echo $key['image']; ?>');height: 100%;background-position: center;background-repeat: no-repeat;background-size: cover;border-radius: 100%;"></div>
-                <p class="centerText"><?php echo $key['name']; ?></p>       
-            </div>
-        <?php  } ?>
-        <?php foreach ($team_db->LoadAll() as $key) {  ?>
-            <div class="cardd">
-                <div style="background-image: url('archon/<?php echo $key['image']; ?>');height: 100%;background-position: center;background-repeat: no-repeat;background-size: cover;border-radius: 100%;"></div>
-                <p class="centerText"><?php echo $key['name']; ?></p>       
-            </div>
-        <?php  } ?>
         
         </div>
     </section>
