@@ -82,21 +82,22 @@ include 'header.php'
 
 
     <!-- video -->
-    <div class="video-part">
+    <section class="video-part">
         <video autoplay="autoplay" loop="loop" muted="muted">
-            <source src="archon/<?php echo $banner['videoURL'] ?>" type="video/mp4">
+            <source src="archon/<?php echo $banner['videoURL'] ?>" type="video/mp4" >
          </video>
-    </div>
+    </section>
     <!-- video -->
 
     <!-- about -->
-    <section id="about" class="about-us padding-section">
+    <hr id="about" style="width: 86%;margin-left: 7%;">
+    <section  class="about-us padding-section"  >
         <div class="grid-row">
-            <div class="grid-col-row clear">
-                <div class="grid-col grid-col-6 col-sd-12">
+            <div class="grid-col-row clear" >
+                <div class="grid-col grid-col-6 col-sd-12"  >
                     <!-- section title -->
-                    <div class="title">
-                        <span class="main-title">ABOUT US</span>
+                    <div class="title"  >
+                        <span class="main-title" >ABOUT US</span>
                         <span class="slash-icon">/
                             <!-- <i class="fa fa-angle-double-right"></i> --></span><br />
                         <?php echo $aboutus['title'] ?>
@@ -114,7 +115,7 @@ include 'header.php'
             </div>
         </div>       
     </section>     
-    <hr />
+    <hr/>
     <!-- about -->
 
     <!-- services -->
@@ -179,53 +180,44 @@ include 'header.php'
                 </div>
             </div>
         </div>
-        <div class="them-mask background-color"></div>
+        <div class="them-mask background-color" id="team"></div>
     </section>
     <!-- funfacts -->
-    <hr>
-
-    <!-- team -->
-    <br><br>
-    <section id="team" class="">
-        <div class="grid-row">
-            <div class="title">
-                <span class="main-title">OUR TEAM</span><span class="slash-icon">/<i
-                        class="fa fa-angle-double-right"></i></span>
-                <h5>WE ARE A LARGE TEAM</h5>
-            </div>
-        </div>
-        <div class="grid-row large-team">
-            <div class="grid-col-row clear">
-
-                <?php foreach ($team as $key) {  ?>
-
-                <div class="grid-col grid-col-3">
-                    <div class="team-item">
-                        <div class="border-img">
-                            <div class="window-tabs">
-                                <div class="overflow-bloc">
-                                    <div class="inform-item">
-
-                                    </div>
-                                </div>
-                                <div style="background-image: url('archon/<?php echo $key['image']; ?>');height: 100%;background-position: center;background-repeat: no-repeat;background-size: cover;border-radius: 100%;"></div>
-                            </div>
-                        </div>
-                        <p style="margin-left: -2.1em;margin-top:3px"><?php echo $key['name']; ?></p>
-                    </div>
-                </div>
-
-                <?php  } ?>
-
-
-
-
-            </div>
-        </div>
-    </section>
+   
     <hr>
     <!-- team -->    
-
+    <section>
+        <div class="grid-row">
+                <div class="title">
+                    <span class="main-title">OUR TEAM</span><span class="slash-icon">/<i
+                            class="fa fa-angle-double-right"></i></span>
+                    <h6 style="display: inherit;">WE ARE A LARGE TEAM</h6>
+                </div>
+            </div>
+        <div class="scrolling-wrapper">
+        
+        <?php foreach ($team_db->LoadAll() as $key) {  ?>
+            <div class="cardd">
+                <div style="background-image: url('archon/<?php echo $key['image']; ?>');height: 100%;background-position: center;background-repeat: no-repeat;background-size: cover;border-radius: 100%;"></div>
+                <p class="centerText"><?php echo $key['name']; ?></p>       
+            </div>
+        <?php  } ?>
+        <?php foreach ($team_db->LoadAll() as $key) {  ?>
+            <div class="cardd">
+                <div style="background-image: url('archon/<?php echo $key['image']; ?>');height: 100%;background-position: center;background-repeat: no-repeat;background-size: cover;border-radius: 100%;"></div>
+                <p class="centerText"><?php echo $key['name']; ?></p>       
+            </div>
+        <?php  } ?>
+        <?php foreach ($team_db->LoadAll() as $key) {  ?>
+            <div class="cardd">
+                <div style="background-image: url('archon/<?php echo $key['image']; ?>');height: 100%;background-position: center;background-repeat: no-repeat;background-size: cover;border-radius: 100%;"></div>
+                <p class="centerText"><?php echo $key['name']; ?></p>       
+            </div>
+        <?php  } ?>
+        
+        </div>
+    </section>
+<hr>
 
  
 
@@ -245,12 +237,12 @@ include 'header.php'
     </div>
     <div class="grid-row">
       <div class="grid-col-row">
-        <div class="isotope portfolio-three-columns">
+        <div class="isotope">
             <?php 
             $portfolioCount=0;
-            foreach ($portfolios as $index=>$key) {  if ($key['visibleonhome']==1&&$portfolioCount<=6) {
+            foreach ($portfolios as $index=>$key) {  if ($key['visibleonhome']==1&&$portfolioCount<=12) {
                 ?>
-        <div class="item <?php echo $key['categories']; ?>" style="width:25em;height:300px;padding:10px;background-color:white">
+        <div class="item <?php echo $key['categories']; ?>" >
             <div class="portfolio-hover">
                 <div class="portfolio-info">
                     <a href="portfolio.php?id=<?php echo $key['id']; ?>">
@@ -260,8 +252,8 @@ include 'header.php'
                     <div class="portfolio-description"><?php echo $key['type']; ?></div> -->
                 </div>
             </div>
-            <div style="background-image:url('archon/<?php echo $key['image']; ?>');    height: 300px;width: auto;background-size: cover;background-position: center;background-repeat: no-repeat;"></div>
-        </div>
+            <img src="archon/<?php echo $key['image']; ?>" alt>
+            </div>
 
         <?php
             $portfolioCount++;}} ?>

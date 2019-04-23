@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" type="text/css" href="rs-plugin/css/settings.css" media="screen" />
     
+    <link rel="stylesheet" href="css/teamYAxisScroll.css">
+    
     <link rel="stylesheet" href="css/custom.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
