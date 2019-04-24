@@ -32,6 +32,8 @@ class blogDAL
             $query.=" tags ";             
             $query.=", "; 
             $query.=" arthor "; 
+            $query .= ", ";
+            $query .= " visibleonhome ";
             $query.=", "; 
             $query.=" dateofcreation "; 
             $query.=") VALUES ("; 
@@ -46,6 +48,8 @@ class blogDAL
             $query.="'{$obj->tags}'"; 
             $query.=", "; 
             $query.="'{$obj->arthor}'"; 
+            $query .= ", ";
+            $query .= "'{$obj->visibleonhome}'";
             $query.=", "; 
             $query.="'{$obj->dateofcreation}'"; 
             $query.=");"; 
@@ -67,6 +71,8 @@ class blogDAL
             $query.="tags='{$obj->tags}'"; 
             $query.=", "; 
             $query.="arthor='{$obj->arthor}'"; 
+            $query .= ", ";
+            $query .= "visibleonhome='{$obj->visibleonhome}' ";
             $query.=", "; 
             $query.="dateofcreation='{$obj->dateofcreation}'"; 
             $query.="WHERE id='{$obj->id}' ;"; 

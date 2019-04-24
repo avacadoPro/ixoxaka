@@ -21,6 +21,7 @@ if (isset($_GET['id'])) {
         $objBAL->image = $row['image'];
         $objBAL->tags = $row['tags'];
         $objBAL->arthor = $row['arthor'];
+        $objBAL->visibleonhome = $row['visibleonhome'];
         $objBAL->dateofcreation = $row['dateofcreation'];
 		//}
     }
@@ -51,7 +52,14 @@ if (isset($_POST['submit'])) {
     $objBAL->tags = $_POST['tags'];
     $objBAL->arthor = $_POST['arthor'];
     $objBAL->dateofcreation = $_POST['dateofcreation'];
-    $objBAL->image = ($isFile) ? "images/blog_images/" . $newFileName : $_POST['image'];
+    $objBAL->visibleonhome = $_POST['visibleonhome'];
+
+    if($isFile){
+        $objBAL->image ="images/blog_images/" . $newFileName;
+    }else if(isset($_POST['image'])&&strlen($_POST['image'])>0){
+        $objBAL->image=$_POST['image'];
+    }
+
     if ($objBAL->id == 0) {
         $dal->Add($objBAL);
         echo "<script type='text/javascript'>location.href = 'index.php';</script>";
@@ -115,7 +123,13 @@ if (isset($_POST['submit'])) {
                                         <input type="text" name="arthor" value="<?php echo $objBAL->arthor; ?>"class = "form-control" required/>
                                         </div>
                                     </div>
-                               
+                                    <div class="form-group">
+                                    <label class="control-label col-md-2">Visible on Home</label>
+                                    <div class="col-md-10">
+                                        <input type="checkbox" name="visibleonhome" value="1"
+                                            <?php echo $objBAL->visibleonhome==1?"checked":""; ?> />
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <label class = "control-label col-md-2">Short Content</label>
                                     <div class="col-md-10">

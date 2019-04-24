@@ -63,7 +63,7 @@ if (isset($_POST['btn_search'])) {
 								</div>		
 							</div>
 						</form>
-						<table class="table">
+						<table class="table table-responsive-lg">
 						<thead>
 							<tr>
 								<th class="hidden">
@@ -80,6 +80,9 @@ if (isset($_POST['btn_search'])) {
 								</th>
 								<th>
 								Arthor
+								</th>
+								<th>
+									Visible On Home
 								</th>
 								<th>
 								Date of Creation
@@ -99,6 +102,8 @@ if (isset($_POST['btn_search'])) {
 									echo '<td>'.$row['title']."</td>";
 									echo '<td>'.$row['tags']."</td>";
 									echo '<td>'.$row['arthor']."</td>";
+									$visibleonhome=($row['visibleonhome']==true)?"Yes":"No";
+									echo '<td>'. $visibleonhome."</td>";
 									echo '<td>'.$row['dateofcreation']."</td>";
 									echo '<td> <a href="Form.php?id='.$row['id'].'">Edit</a> | <a href="Form.php?did='.$row['id'].'">Delete</a></td>';
 									echo '</tr>';		

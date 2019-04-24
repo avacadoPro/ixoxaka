@@ -83,7 +83,7 @@ include 'header.php'
 
     <!-- video -->
     <section class="video-part">
-        <video autoplay="autoplay" loop="loop" muted="muted">
+        <video autoplay="autoplay" playsinline autoplay muted loop>
             <source src="archon/<?php echo $banner['videoURL'] ?>" type="video/mp4" >
          </video>
     </section>
@@ -191,7 +191,7 @@ include 'header.php'
                 <div class="title">
                     <span class="main-title">OUR TEAM</span><span class="slash-icon">/<i
                             class="fa fa-angle-double-right"></i></span>
-                    <h6 style="display: inherit;">WE ARE A LARGE TEAM</h6>
+                    <h6 style="display: inherit;">OUR TEAM/ LET US KICK START YOUR BUSINESS</h6>
                 </div>
             </div>
         <div class="scrolling-wrapper">
@@ -283,7 +283,9 @@ include 'header.php'
             <div class="grid-row">
                 <div class="blog">
 
-                    <?php foreach ($blogs as $key => $value) { if($key<6) {?>
+                    <?php                    
+                    $blogCount=1;
+                     foreach ($blogs as $key => $value) {  if ($value['visibleonhome']==1&&$blogCount<=3) {?>
                     <div class="item clear">
                         <!-- <div class="date-round" style="opacity: 0.2;">
                                     <div class="date-mounth">
@@ -313,7 +315,7 @@ include 'header.php'
                         </div>
 
                         <div class="item-header"><br><br>
-                            <h2> <?php echo $value['title'] ?></h2>
+                            <a href="blog.php?id=<?php echo $value['id'];?>"><h2> <?php echo $value['title'] ?></h2></a>
                         </div>
                         <div class="content">
                             <p> <?php echo $value['shortcontent'] ?></p>
@@ -326,7 +328,7 @@ include 'header.php'
                             <a class="button" href="blog.php?id=<?php echo $value['id'];?>">/ READ MORE</a>
                         </div>
                     </div>
-                    <?php } } ?>
+                    <?php $blogCount++;} } ?>
 
 
                 </div>
@@ -334,6 +336,9 @@ include 'header.php'
         </div>
     </section>
     <!-- blog -->
+    
+   
+    <!-- #endregion Jssor Slider End -->
 
     <!-- clients -->
     <section id="clients" class="our-team padding-section">
@@ -346,45 +351,26 @@ include 'header.php'
                         WHO TRUST US
                         <br />
                     </div>
-
-
-                    <div class="carousel-nav">
-                        <div class="carousel-button">
-                            <div class="prev"><i class="fa fa-chevron-left"></i></div>
-                            <div class="next"><i class="fa fa-chevron-right"></i></div>
+                    <div id="jssor_1"
+                        style="position:relative;margin:0 auto;top:0px;left:0px;width:980px;height:100px;overflow:hidden;visibility:hidden;">
+                        <!-- Loading Screen -->
+                        <div data-u="loading" class="jssorl-009-spin"
+                            style="position:absolute;top:0px;left:0px;width:100%;height:100%;text-align:center;background-color:rgba(0,0,0,0.7);">
+                            <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;"
+                                src="../svg/loading/static-svg/spin.svg" />
                         </div>
-                        <div class="carousel-line"></div>
-                    </div>
-
-                    <br><br>
-
-                    <div class="container-gallery">
-                        <div class="grid-col-row">
-                            <div id="gallery-three-items" class="owl-carousel" style="height: 150px">
-
-
-                                <?php foreach ($clients as $key) {  ?>
-
-                                <div class="gallery-item picture text-center" style="height: 150px; width: auto">
-                                    <!-- <div class="hover-effect"></div>
-                                    <div class="link-cont">
-
-                                        <a href="archon/<?php echo $key['image']; ?>" class="fancy fa fa-search"></a>
-
-                                    </div> -->
-                                    <img src="archon/<?php echo $key['image']; ?>"
-                                        style="height: 150px; width: auto;    margin-left: 30%;" alt>
+                        <div data-u="slides"
+                            style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:100px;overflow:hidden;">
+                            <?php foreach ($clients as $key => $value) { ?>
+                                <div>
+                                    <img data-u="image" src="<?php echo './archon/' . $value['image'] ?>" />
                                 </div>
-
-                                <?php } ?>
-
-
-
-
-                            </div>
+                                <?php  } ?>
                         </div>
                     </div>
-
+                </div>
+            </div>
+        </div>
     </section>
     <hr>
     <!-- clients -->

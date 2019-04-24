@@ -16,6 +16,8 @@
     crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
+    
+    <script type="text/javascript" src="js/jssor.slider.min.js"></script>
 
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/jquery.fancybox.css">
@@ -25,6 +27,9 @@
     <link rel="stylesheet" type="text/css" href="rs-plugin/css/settings.css" media="screen" />
     
     <link rel="stylesheet" href="css/teamYAxisScroll.css">
+    <link rel="stylesheet" href="css/clientsSlider.css">
+    <script src="js/clientSlider.js"></script>
+
     
     <link rel="stylesheet" href="css/custom.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>

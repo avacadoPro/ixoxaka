@@ -8,6 +8,7 @@ class blogBAL
     public $image="";
     public $tags="";
     public $arthor="";
+    public $visibleonhome=0;
     public $dateofcreation=null;
 }
 ?>
