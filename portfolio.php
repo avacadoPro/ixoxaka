@@ -40,10 +40,10 @@ if (isset($_GET['id'])) {
                         </div>
                        
                         <dl>
-                            <!-- <div
+                            <div
                                 style="background-image:url('<?php echo './archon/' . $portfolio['image'] ?>'); width:100%;height:auto; background-repeat: no-repeat;background-position: center;">
-                            </div> -->
-                            <image url="<?php echo './archon/' . $portfolio['image'] ?>" style="height:auto;width:100%"/>
+                            </div>
+                            <!-- <image url="<?php echo './archon/' . $portfolio['image'] ?>" style="height:auto;width:100%"/> -->
                             <div class="canvas">
                             </div>
                         </dl>
