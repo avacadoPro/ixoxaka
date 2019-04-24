@@ -41,7 +41,7 @@ if (isset($_GET['id'])) {
                        
                         <dl>
                             <div
-                                style="background-image:url('<?php echo './archon/' . $portfolio['image'] ?>'); width:100%;height:auto; background-repeat: no-repeat;background-position: center;">
+                                style="background-image:url('<?php echo './archon/' . $portfolio['image'] ?>');height:800px; background-repeat: no-repeat;background-position: cover;">
                             </div>
                             <!-- <image url="<?php echo './archon/' . $portfolio['image'] ?>" style="height:auto;width:100%"/> -->
                             <div class="canvas">
