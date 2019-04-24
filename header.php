@@ -32,6 +32,7 @@
 
     
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/socialMediaIcons.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
     <script src="js/angular/CMS_APP.js"></script>
