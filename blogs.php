@@ -25,7 +25,7 @@ $blogs=$blogs_db->LoadAll();
                         </div>
                     </div>
                     <div class="grid-col grid-col-8 clear bottom">
-                        <div class="years"><a href="blog-fullwidth.html">2018</a></div>
+                        <div class="years"><a href="blog-fullwidth.html"><?php echo date("Y"); ?></a></div>
                         <div class="slash">/</div>
                         <!--<div class="years"><a href="blog-fullwidth.html">2015</a></div>
                                 <div class="slash">/</div>
@@ -74,10 +74,12 @@ $blogs=$blogs_db->LoadAll();
                             <p> <?php echo $value['shortcontent'] ?></p>
                         </div>
                         <div class="post-info clear">
-                            <span><i class="fa fa-calendar"></i><?php echo " Posted ".$value['dateofcreation']." by ".$value['arthor']; ?></span>
-                            <!-- <span><i class="fa fa-edit"></i> Admin</span>
-                                    <span><i class="fa fa-comment"></i> 2 Coments</span>
-                                    <span><i class="fa fa-bookmark"></i> Audio</span> -->
+                        <span>
+                                <i class="fa fa-user"></i>
+                                <?php echo " ".$value['arthor']; ?>
+                                <i class="fa fa-calendar"></i>
+                                <?php echo " ".date("d-m-Y", strtotime($value['dateofcreation'])); ?>
+                            </span>
                             <a class="button" href="blog.php?id=<?php echo $value['id'];?>">/ READ MORE</a>
                         </div>
                     </div>
