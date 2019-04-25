@@ -46,14 +46,14 @@ if (isset($_POST['submit'])) {
 						<div class="contacts">
 							<div class="">
 								<i class="fa  fa-globe"></i>
-								<div class="contact-content" style="margin-top: -20px;margin-bottom: 32px;" >
+								<div class="contact-content" style="margin-top: -33px;margin-bottom: 32px;" >
 									<strong>Where we are:</strong>
 									<p><?php echo $contactus['address'] ?></p>
 								</div>
 							</div>
 							<div class="">
 								<i class="fa fa-phone"></i>
-								<div class="contact-content" style="margin-top: -20px;margin-bottom: 32px;">
+								<div class="contact-content" style="margin-top: -33px;margin-bottom: 32px;">
 									<strong>Customer Care:</strong>
 									<p>
                                         <a href="tel:<?php echo $contactus['phoneNo'] ?>"><?php echo $contactus['phoneNo'] ?></a>
@@ -62,7 +62,7 @@ if (isset($_POST['submit'])) {
 							</div>
 							<div class="">
 								<i class="fa fa-envelope-o"></i>
-								<div class="contact-content" style="margin-top: -20px;margin-bottom: 32px;" >
+								<div class="contact-content" style="margin-top: -33px;margin-bottom: 32px;" >
                                     <strong>General Email:</strong>
                                     <p>
                                         <a href="mailto:<?php echo $contactus_result['email'] ?>"><?php echo $contactus['email'] ?>
@@ -71,7 +71,7 @@ if (isset($_POST['submit'])) {
 							</div>
 							<div class="">
 								<i class="fa  fa-power-off"></i>
-								<div class="contact-content" style="margin-top: -20px;margin-bottom: 32px;">
+								<div class="contact-content" style="margin-top: -33px;margin-bottom: 32px;">
 									<strong>Work Time:</strong>
 									<p><?php echo $contactus['workTime'] ?></p>
 								</div>
