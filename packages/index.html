@@ -16,7 +16,7 @@
                     {{package.duration}}{{package.type}}
                 </li>
                 <ul class="sub-menu">
-                    <li ng-repeat="service in package.services"> 
+                    <li ng-repeat="service in package.services" ng-if="service.isCheck"> 
                         <i class='fas fa-check-circle' style='color:#4CAF50' ng-if="service.isCheck"></i>
                         <i class='far fa-check-circle' ng-if="!service.isCheck"></i>
                      {{service.title}}</li>
