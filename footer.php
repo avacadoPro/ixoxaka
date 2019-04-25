@@ -2,7 +2,7 @@
     <footer id="footer">
         <div class="grid-row clear">
             <div class="footer">
-                <div id="copyright">Copyright<span> COORDINATOR MARKETING & SERVICES</span> <?php echo date("Y"); ?>-All Rights Reserved
+                <div id="copyright">Copyright<span> COORDINATOR MARKETING & SERVICES</span> <?php echo date("Y"); ?>- All Rights Reserved
                 </div>
                 <a href="index.html" class="footer-logo">
                 

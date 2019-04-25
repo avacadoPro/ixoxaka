@@ -24,9 +24,6 @@ if (isset($_GET['did'])) {
     echo "<script type='text/javascript'>location.href = 'index.php';</script>";
 }
 if (isset($_POST['submit'])) {
-
-
-
     $filename = pathinfo($_FILES['file']['name'], PATHINFO_FILENAME);
     $isFile = (strlen($_FILES['file']['name']) != 0) ? true : false;
     $target_dir = "../images/banner_videos/";
@@ -64,25 +61,6 @@ if (isset($_POST['submit'])) {
   $source[0].src = URL.createObjectURL(this.files[0]);
   $source.parent()[0].load();
 });
-//   function readURL(input) {
-//         if (input.files && input.files[0]) {
-//             var reader = new FileReader();
-
-//             reader.onload = function (e) {
-//                 $('#file')
-//                     .attr('src', e.target.result)
-//                     .width(150)
-//                     .height(150);
-//             };
-
-//             reader.readAsDataURL(input.files[0]);
-//         }
-//     }
-
-
-
-
-
 </script>
 <!-- page content -->
 <div class="right_col" role="main">
@@ -126,7 +104,7 @@ if (isset($_POST['submit'])) {
                             <div class="form-group">
                                 <div class="col-md-offset-2 col-md-10">
                                     
-                                <input type="submit" name="submit" value="Save" class = "btn btn-default btn-block"/>
+                                <input type="submit" name="submit" value="Save" class = "btn btn-default btn-block"  />
                                 </div>
                             </div>
                         </div>

@@ -1,4 +1,4 @@
-CMS_APP.controller('PortFolioController', function ($scope, $http, scopeService, imageUploadService, $timeout) {
+CMS_APP.controller('PortFolioController', function ($scope, $http, scopeService, UploadService, $timeout) {
     $scope.portfolio = {};
     $scope.portfolios = [];
     $scope.filteredPortfolios = [];
@@ -136,7 +136,7 @@ CMS_APP.controller('PortFolioController', function ($scope, $http, scopeService,
 
     $scope.save = function () {
         if ($scope.portfolio.imageInput) {
-            imageUploadService.uploadImage($scope.portfolio.imageInput, "portfolio_images").then(savedImagePath => {
+            UploadService.uploadImage($scope.portfolio.imageInput, "portfolio_images").then(savedImagePath => {
                 $scope.portfolio.image = savedImagePath;
                 $scope.saveHelper();
             }).catch(e => {

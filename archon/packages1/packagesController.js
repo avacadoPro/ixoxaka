@@ -1,4 +1,4 @@
-CMS_APP.controller('packagesController', function ($scope, $http, scopeService, imageUploadService, $timeout) {
+CMS_APP.controller('packagesController', function ($scope, $http, scopeService, UploadService, $timeout) {
     $scope.package = {};
     $scope.packages = [];
     $scope.filteredpackages = [];

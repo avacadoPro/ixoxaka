@@ -49,8 +49,8 @@ foreach ($contactuss as $key => $value) {
 }
 
 
-require 'archon/banner-video/classes/bannerDAL.php';
-$banner_db=new bannerDAL(include('dbConfig.php'));
+require 'archon/banner-content/classes/banner_contentDAL.php';
+$banner_db=new banner_contentDAL(include('dbConfig.php'));
 $banners=$banner_db->Find(1);
 $banner=null;
 foreach ($banners as $key => $value) {
@@ -79,14 +79,30 @@ if (isset($_POST['submit'])) {
 include 'header.php'
 ?>
 
+<style>
+    
 
+    </style>
 
     <!-- video -->
-    <section class="video-part">
-        <video autoplay="autoplay" playsinline autoplay muted loop>
-            <source src="archon/<?php echo $banner['videoURL'] ?>" type="video/mp4" >
-         </video>
-    </section>
+    
+        <?php if($banner['contentType']=="Video"){
+            ?>
+            <section class="video-part">
+                <video autoplay="autoplay" playsinline autoplay muted loop>
+                    <source src="archon/<?php echo $banner['contentURL'] ?>" type="video/mp4" >
+                </video>
+         </section>
+        <?php
+        }else{
+            ?>
+            <div style="background-image:url('archon/<?php echo $banner['contentURL'] ?>')" class="bannerImage">
+        </div>
+
+        <?php
+        }?>
+
+    
     <!-- video -->
 
     <!-- about -->

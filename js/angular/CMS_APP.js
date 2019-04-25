@@ -1,6 +1,7 @@
 ﻿// var root="/ixoxaka/";
 var root="/";
 var imageUploadingAPI=root+"archon/CMSImageUploaderAPI.php";
+var videoUploadingAPI=root+"archon/CMSVideoUploaderAPI.php";
 var CMS_APP = angular.module('CMS_APP',["ngSanitize"]);
 CMS_APP.directive("ngUploadChange", function () {
     return {

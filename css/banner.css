@@ -1,0 +1,15 @@
+.bannerImage{
+    height: 50em;
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+@media only screen and (max-width: 600px) {
+    .bannerImage {
+        height: 15em;
+        background-position: center center;
+        background-size: contain;
+        background-repeat: no-repeat;
+
+    }
+}

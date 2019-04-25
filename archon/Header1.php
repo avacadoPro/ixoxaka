@@ -41,7 +41,7 @@ if (isset($_SESSION['id'])) {
     <!-- Bootstrap -->
     <link href="../css/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="../css/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!-- NProgress -->
     <link href="../css/nprogress/nprogress.css" rel="stylesheet">
 
@@ -65,9 +65,10 @@ if (isset($_SESSION['id'])) {
 <script src="../../js/angular/tinymce.js"></script>
   <script src="../../js/angular/CMS_APP.js"></script>
   <script src="../../js/angular/scopeService.js"></script>
-  <script src="../../js/angular/imageUploadService.js"></script>
+  <script src="../../js/angular/UploadService.js"></script>
   <script src="../portfolio1/portfolioController.js"></script>
   <script src="../packages1/packagesController.js"></script>
+  <script src="../banner-content/banner-content.Controller.js"></script>
   
   <!-- Custom styling plus plugins -->
   <link href="../css/custom.css" rel="stylesheet">
@@ -122,19 +123,19 @@ if (isset($_SESSION['id'])) {
                 <h3>Admin Panel</h3>
                 <ul class="nav side-menu" style="overflow-y: scroll;height: 450px;max-width: 230px;">
 
-                    <li><a href="../banner-video"><i class="fa fa-edit"></i> Banner</a></li>
+                    <li><a href="../banner-content"><i class="fa fa-play"></i> Banner Content</a></li>
                     <li><a href="../portfolioCategories"><i class="fa fa-sitemap"></i> Portfolio Categories</a></li>
                     <li><a href="../portfolio1"><i class="fa fa-globe"></i> Portfolio </a></li>
-                    <li><a href="../clients"><i class="fa fa-server"></i> Our Clients </a></li>
+                    <li><a href="../clients"><i class="fa fa-users"></i> Our Clients </a></li>
                     <li><a href="../team"><i class="fa fa-users"></i> Team </a></li>
                     <li><a href="../services"><i class="fa fa-edit"></i> Services </a></li>
-                    <li><a href="../testimonials"><i class="fa fa-edit"></i> Testimonials </a></li>
+                    <li><a href="../testimonials"><i class="fa fa-quote-right"></i> Testimonials </a></li>
                     <li><a href="../blog"><i class="fa fa-edit"></i> Blog </a></li>
                     <li><a href="../aboutus"><i class="fa fa-edit"></i> About Us </a></li>
                     <li><a href="../contactus"><i class="fa fa-edit"></i> Contact Us </a></li>
-                    <li><a href="../contactus_user"><i class="fa fa-edit"></i> Contact Us User</a></li>
+                    <li><a href="../contactus_user"><i class="fa fa-inbox"></i> Messages</a></li>
                     <li><a href="../funfacts"><i class="fa fa-edit"></i> Fun Facts </a></li>
-                    <li><a href="../subscribers"><i class="fa fa-edit"></i>Subscribers </a></li>
+                    <li><a href="../subscribers"><i class="fa fa-heart"></i>Subscribers </a></li>
                     <li><a href="../packageServices"><i class="fa fa-edit"></i>Package Services </a></li>
                     <li><a href="../packages1"><i class="fa fa-edit"></i>Packages </a></li>
                     <?php 
