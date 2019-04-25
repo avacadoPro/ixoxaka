@@ -8,12 +8,12 @@
                 
 					<img src="images/textlogo.png" alt="" style="height: 50px;">
 				</a>
-                <div class="" style="    float: right;">
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-instagram"></i></a>
-                    <a href="#"><i class="fa fa-youtube"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                <div class="" style="float: right;">
+                    <a href="http://www.twitter.com/cmssocialqa"><i class="fa fa-twitter"></i></a>
+                    <a href="http://www.facebook.com/cmssocialqa"><i class="fa fa-facebook"></i></a>
+                    <a href="http://www.instagram.com/cmssocialqa"><i class="fa fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/channel/cmssocialqa"><i class="fa fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com/in/cmssocialqa"><i class="fa fa-linkedin"></i></a>
                     <a href="tel:+97433322106"><i class="fa fa-phone footerPhone"></i></a>
                     <a href="tel:+97433322106"><i class="fa fa-whatsapp"></i></a>
                 </div>
