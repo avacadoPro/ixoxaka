@@ -38,8 +38,6 @@
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-sanitize.js"></script>
     <script src="js/angular/CMS_APP.js"></script>
     <script src="js/angular/scopeService.js"></script>
-    <script src="js/angular/imageUploadService.js"></script>
-    <script src="js/angular/imageUploadService.js"></script>
     <script src="packages/packagesFrontEndController.js"></script>
     <!--styles -->
 </head>

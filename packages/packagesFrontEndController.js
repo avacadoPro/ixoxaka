@@ -1,4 +1,4 @@
-CMS_APP.controller('packagesFrontEndController', function ($scope, $http, scopeService, imageUploadService, $timeout) {
+CMS_APP.controller('packagesFrontEndController', function ($scope, $http, scopeService, $timeout) {
 
     $scope.packages = [];
     
