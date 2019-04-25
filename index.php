@@ -207,7 +207,7 @@ include 'header.php'
                 <div class="title">
                     <span class="main-title">OUR TEAM</span><span class="slash-icon">/<i
                             class="fa fa-angle-double-right"></i></span>
-                    <h6 style="display: inherit;">OUR TEAM/ LET US KICK START YOUR BUSINESS</h6>
+                    <h6 style="display: inherit;">LET US KICK START YOUR BUSINESS</h6>
                 </div>
             </div>
         <div class="scrolling-wrapper">
