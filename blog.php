@@ -15,7 +15,20 @@ if (isset($_GET['id'])) {
     echo "<script type='text/javascript'>location.href = 'index.php';</script>";
 }
 ?>
-
+<style>
+	.BlogImage{
+		background-repeat: no-repeat;
+    	background-size: contain;
+		height:500px;
+	}
+	@media only screen and (max-width: 600px) {
+		.BlogImage{
+			background-repeat: no-repeat;
+			background-size: contain;
+			height:13em;
+		}
+	}	
+</style>
 <div class="top-bg" >
     <img src="img/splash-top.png" class="splash-top" alt>
     <div class="page-title zoomIn animated text-white"><?php echo $blog['title'] ?></div>
@@ -38,7 +51,7 @@ if (isset($_GET['id'])) {
                        
                         <dl>
                             <div
-                                style="background-image:url('<?php echo './archon/' . $blog['image'] ?>');height: 500px; background-repeat: no-repeat;">
+                                style="background-image:url('<?php echo './archon/' . $blog['image'] ?>');" class="BlogImage">
                             </div>
                             <div class="canvas">
                             </div>

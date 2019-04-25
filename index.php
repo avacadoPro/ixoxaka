@@ -323,7 +323,7 @@ include 'header.php'
                                             <a href="blog-single-post.html" class="cws-slide-right fa fa-heart"></a>
                                         </div> -->
                                 <img src="<?php echo './archon/' . $value['image'] ?>"
-                                    style="height:400px;width:auto;float:<?php echo ($key % 2 == 0) ? "right" : "left" ?>" />
+                                    style="width:100%;float:<?php echo ($key % 2 == 0) ? "right" : "left" ?>" />
                                 <div class="canvas">
                                     <!-- <div class="grad"></div> -->
                                 </div>
