@@ -7,7 +7,7 @@ class banner_contentDAL
 	    try 
 	    {
 	        if(!isset($connectionString)){
-	            $connectionString = include 'DbConfig.php';
+                $connectionString = include './../../dbConfig.php';
 	        }
 		    $GLOBALS['pdo'] = new PDO($connectionString[0],$connectionString[1], $connectionString[2]);
 		    $GLOBALS['pdo']->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
