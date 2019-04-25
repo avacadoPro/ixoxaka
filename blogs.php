@@ -68,7 +68,7 @@ $blogs=$blogs_db->LoadAll();
                         </div>
 
                         <div class="item-header"><br><br>
-                            <h2> <?php echo $value['title'] ?></h2>
+                            <a href="blog.php?id=<?php echo $value['id'];?>"><h2> <?php echo $value['title'] ?></h2></a>
                         </div>
                         <div class="content">
                             <p> <?php echo $value['shortcontent'] ?></p>
