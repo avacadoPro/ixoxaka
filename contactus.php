@@ -39,7 +39,7 @@ if (isset($_POST['submit'])) {
 				<div class="title">
 					<span class="main-title">CONTACT</span><span class="slash-icon">/<i class="fa fa-angle-double-right"></i></span><h5>GET IN TOUCH WITH US</h5>
 				</div>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse consectetur at mi non vulputate. Etiam malesuada arcu massa, ut rhoncus lorem lacinia ac. Donec porttitor velit non lacus venenatis pellentesque. Nam convallis nisl vel consectetur sagittis. Etiam cursus adipiscing purus id aliquet. Nulla sit amet tortor eget est ornare interdum. In vehicula ipsum turpis, et hendrerit arcu dapibus at. Sed malesuada dapibus ante, ac rhoncus risus dictum sed.</p>
+				<!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse consectetur at mi non vulputate. Etiam malesuada arcu massa, ut rhoncus lorem lacinia ac. Donec porttitor velit non lacus venenatis pellentesque. Nam convallis nisl vel consectetur sagittis. Etiam cursus adipiscing purus id aliquet. Nulla sit amet tortor eget est ornare interdum. In vehicula ipsum turpis, et hendrerit arcu dapibus at. Sed malesuada dapibus ante, ac rhoncus risus dictum sed.</p> -->
                 <br>
                 <div class="grid-col-row clear">
 					<div class="grid-col grid-col-3 sidebar">
