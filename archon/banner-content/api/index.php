@@ -8,7 +8,7 @@ $classname="banner_contentBAL.php";
 spl_autoload_register(function ($class_name) {
     include '../classes/'.$class_name . '.php';
 });
-$db=new banner_contentDAL(null);
+$db=new banner_contentDAL(include("../../../dbConfig.php"));
 $request_method=$_SERVER["REQUEST_METHOD"];
 switch ($request_method) {
         case 'GET':
