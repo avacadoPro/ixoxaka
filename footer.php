@@ -8,7 +8,7 @@
                 
 					<img src="images/textlogo.png" alt="" style="height: 50px;">
 				</a>
-                <div class="" style="float: right;">
+                <div class="" style="float: right;padding:8px">
                     <a href="http://www.twitter.com/cmssocialqa"><i class="fa fa-twitter"></i></a>
                     <a href="http://www.facebook.com/cmssocialqa"><i class="fa fa-facebook"></i></a>
                     <a href="http://www.instagram.com/cmssocialqa"><i class="fa fa-instagram"></i></a>
