@@ -15,13 +15,21 @@ $contactus_user_db=new contactus_userDAL(include('dbConfig.php'));
 $contactus_user=new contactus_userBAL();
 
 
+require 'archon/Mail/Mailer.php';
 if (isset($_POST['submit'])) {
     $contactus_user->userName=$_POST['userName'];
     $contactus_user->email=$_POST['email'];
     $contactus_user->website=$_POST['website'];
     $contactus_user->message=$_POST['message'];
     
-    $contactus_user_db->Add($contactus_user);
+	$contactus_user_db->Add($contactus_user);
+	$mailer=new Mailer();
+	$message="User name:".$contactus_user->userName."\n";
+	$message.="Email:".$contactus_user->email."\n";
+	$message.="Website:".$contactus_user->website."\n";
+	$message.="Message:".$contactus_user->message."\n";
+    $mailer->sendme("New Message Received",$message);
+    //$mailer->send($contactus_user->email,"We Received your message","Thank you for message us we will respnonse your messsage as soon.");
     $contactus_user=new contactus_userBAL();
     echo "<script type='text/javascript'>alert('Send!')</script>";
 }
@@ -65,7 +73,7 @@ if (isset($_POST['submit'])) {
 								<div class="contact-content" style="margin-top: -33px;margin-bottom: 32px;" >
                                     <strong>General Email:</strong>
                                     <p>
-                                        <a href="mailto:<?php echo $contactus_result['email'] ?>"><?php echo $contactus['email'] ?>
+                                        <a href="mailto:<?php echo $contactus['email'] ?>"><?php echo $contactus['email'] ?>
                                     </p>
 								</div>
 							</div>

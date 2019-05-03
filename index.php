@@ -67,13 +67,22 @@ foreach ($funfacts as $key => $value) {
 
 
 require 'archon/testimonials/classes/testimonialsDAL.php';
+require 'archon/Mail/Mailer.php';
+require 'archon/subscribers/classes/subscribersDAL.php';
+require 'archon/subscribers/classes/subscribersBAL.php';
+
 $testimonials_db=new testimonialsDAL(include('dbConfig.php'));
 $testimonials=$testimonials_db->LoadAll();
-
+$scubscribers_db=new subscribersDAL(include('dbConfig.php'));
+$scubscriber=new subscribersBAL();
 if (isset($_POST['submit'])) {
-    $email=$_POST['email'];
-    
-    $db->AddSubscriber($email);
+    $scubscriber->email=$_POST['email'];
+    $scubscribers_db->Add($scubscriber);
+    $mailer=new Mailer();
+    $mailer->sendme("New user Subscribed",$scubscriber->email." subscribed on CMS.qa");
+    //$mailer->send($scubscriber->email,"Thank you for Subscribing","Thank you for subscribe us stay tunned for more updates.");
+
+
     echo "<script type='text/javascript'>alert('Subscribed!')</script>";
 }
 include 'header.php'
@@ -230,7 +239,7 @@ include 'header.php'
       <div class="portfolio-filter clear">
         <div class="title">
           <a href="#" class="active" data-filter=".item" style="float:right">ALL</a>
-          <span class="main-title">PORTFOLIO</span>
+          <a class="main-title">PORTFOLIO</a>
           <span class="slash-icon">/</span>
           <?php foreach ($portfolioCategories as $key => $value) {
                     echo '<a href="#" data-filter=".'.$value['title'].'">'.strtoupper($value['title']).'</a>';
@@ -280,7 +289,7 @@ include 'header.php'
                 <div class="grid-col-row clear position">
                     <div class="grid-col">
                         <div class="title">
-                            <span class="main-title">BLOG</span>
+                            <a class="main-title" href="blogs.php">BLOG</a>
                             <span class="slash-icon">/</span><br />
                             LATEST FROM<br />OUR BLOG
                         </div>
