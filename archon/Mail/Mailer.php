@@ -14,7 +14,7 @@ class Mailer
 
         $smtp = Mail::factory('smtp', array(
                 'host' => 'mail.cms.qa',
-                'port' => '25',
+                'port' => '465',
                 'auth' => true,
                 'username' => 'contact@cms.qa', //your gmail account
                 'password' => 'user123456' // your password
@@ -37,7 +37,7 @@ class Mailer
 
         $smtp = Mail::factory('smtp', array(
             'host' => 'mail.cms.qa',
-            'port' => '25',
+            'port' => '465',
             'auth' => true,
             'username' => 'contact@cms.qa', //your gmail account
             'password' => 'user123456' // your password
