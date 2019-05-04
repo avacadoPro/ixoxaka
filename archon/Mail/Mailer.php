@@ -4,7 +4,7 @@ class Mailer
 {
     public function send($to, $subject, $body)
     {
-        $from = 'testing@cms.qa'; //change this to your email address
+        $from = 'contact@cms.qa'; //change this to your email address
         
         $headers = array(
             'From' => $from,
@@ -16,8 +16,8 @@ class Mailer
                 'host' => 'mail.cms.qa',
                 'port' => '25',
                 'auth' => true,
-                'username' => 'contact@cms.qa', //your gmail account
-                'password' => 'coordinatorms' // your password
+                'username' => $from, //your gmail account
+                'password' => 'Fifa1234!' // your password
             ));
 
         // Send the mail
@@ -27,7 +27,7 @@ class Mailer
 
     public function sendme( $subject, $body)
     {
-        $from = 'testing@cms.qa'; //change this to your email address
+        $from = 'contact@cms.qa'; //change this to your email address
         
         $headers = array(
             'From' => $from,
@@ -39,8 +39,8 @@ class Mailer
             'host' => 'mail.cms.qa',
             'port' => '25',
             'auth' => true,
-            'username' => 'contact@cms.qa', //your gmail account
-            'password' => 'coordinatorms' // your password
+            'username' => $from, //your gmail account
+            'password' => 'Fifa1234!' // your password
         ));
         // Send the mail
         $mail = $smtp->send($from, $headers, $body);

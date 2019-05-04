@@ -80,7 +80,7 @@ if (isset($_POST['submit'])) {
     $scubscribers_db->Add($scubscriber);
     $mailer=new Mailer();
     $mailer->sendme("New user Subscribed",$scubscriber->email." subscribed on CMS.qa");
-    //$mailer->send($scubscriber->email,"Thank you for Subscribing","Thank you for subscribe us stay tunned for more updates.");
+    // $mailer->send($scubscriber->email,"Thank you for Subscribing","Thank you for subscribe us stay tunned for more updates.");
 
 
     echo "<script type='text/javascript'>alert('Subscribed!')</script>";
