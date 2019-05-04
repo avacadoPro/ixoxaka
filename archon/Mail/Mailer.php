@@ -14,10 +14,10 @@ class Mailer
 
         $smtp = Mail::factory('smtp', array(
                 'host' => 'mail.cms.qa',
-                'port' => '465',
+                'port' => '25',
                 'auth' => true,
                 'username' => 'contact@cms.qa', //your gmail account
-                'password' => 'user123456' // your password
+                'password' => 'coordinatorms' // your password
             ));
 
         // Send the mail
@@ -37,10 +37,10 @@ class Mailer
 
         $smtp = Mail::factory('smtp', array(
             'host' => 'mail.cms.qa',
-            'port' => '465',
+            'port' => '25',
             'auth' => true,
             'username' => 'contact@cms.qa', //your gmail account
-            'password' => 'user123456' // your password
+            'password' => 'coordinatorms' // your password
         ));
         // Send the mail
         $mail = $smtp->send($from, $headers, $body);
