@@ -199,7 +199,7 @@ include 'header.php'
                     <div class="grid-col grid-col-3">
                         <div class="counter-block last">
                             <div class="counter" data-count="<?php echo $funfact['cupsofcoffee'] ?>"></div>
-                            <div class="counter-name">Cups Of Coffe</div>
+                            <div class="counter-name">Cups Of Coffee</div>
                         </div>
                     </div>
                 </div>

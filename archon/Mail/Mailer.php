@@ -16,8 +16,8 @@ class Mailer
                 'host' => 'mail.cms.qa',
                 'port' => '25',
                 'auth' => true,
-                'username' => 'testing@cms.qa', //your gmail account
-                'password' => 'Fifa1234!' // your password
+                'username' => 'contact@cms.qa', //your gmail account
+                'password' => 'user123456' // your password
             ));
 
         // Send the mail
@@ -36,13 +36,12 @@ class Mailer
         );
 
         $smtp = Mail::factory('smtp', array(
-                'host' => 'mail.cms.qa',
-                'port' => '25',
-                'auth' => true,
-                'username' => 'testing@cms.qa', //your gmail account
-                'password' => 'Fifa1234!' // your password
-            ));
-
+            'host' => 'mail.cms.qa',
+            'port' => '25',
+            'auth' => true,
+            'username' => 'contact@cms.qa', //your gmail account
+            'password' => 'user123456' // your password
+        ));
         // Send the mail
         $mail = $smtp->send($from, $headers, $body);
 
