@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
 	$message.="Website:".$contactus_user->website."\n";
 	$message.="Message:".$contactus_user->message."\n";
     $mailer->sendme("New Message Received",$message);
-    //$mailer->send($contactus_user->email,"We Received your message","Thank you for message us we will respnonse your messsage as soon.");
+    $mailer->send($contactus_user->email,"We Received your message","Thank you for message us we will respnonse your messsage as soon.");
     $contactus_user=new contactus_userBAL();
     echo "<script type='text/javascript'>alert('Send!')</script>";
 }
