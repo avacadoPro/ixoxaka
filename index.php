@@ -347,10 +347,8 @@ include 'header.php'
                         </div>
                         <div class="post-info clear">
                             <span>
-                                <i class="fa fa-user"></i>
-                                <?php echo " ".$value['arthor']; ?>
-                                <i class="fa fa-calendar"></i>
-                                <?php echo " ".date("d-m-Y", strtotime($value['dateofcreation'])); ?>
+                                <i class="fa fa-user"></i><?php echo " ".$value['arthor']; ?>
+                                <i class="fa fa-calendar"></i><?php echo " ".date("d-m-Y", strtotime($value['dateofcreation'])); ?>
                             </span>
                            
                             <a class="button" href="blog.php?id=<?php echo $value['id'];?>">/ READ MORE</a>
@@ -374,7 +372,7 @@ include 'header.php'
             <div class="grid-col-row clear">
                 <div class="grid-col-2 grid-col-10 col-sd-8">
                     <div class="title">
-                        <span class="main-title">OUR CLIENT</span>
+                        <span class="main-title">OUR CLIENTS</span>
                         <span class="slash-icon">/</span><br />
                         WHO TRUST US
                         <br />
