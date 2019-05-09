@@ -347,7 +347,7 @@ include 'header.php'
                         </div>
                         <div class="post-info clear">
                             <span>
-                                <i class="fa fa-user" style="margin-right: -19px;"></i><?php echo $value['arthor']." "; ?>
+                                <i class="fa fa-user" style="margin-right: -19px;"></i><?php echo $value['arthor']."    "; ?>
                                 <i class="fa fa-calendar" style="margin-right: -19px;"></i><?php echo date("d-m-Y", strtotime($value['dateofcreation'])); ?>
                             </span>
                            
